@@ -1,5 +1,5 @@
 
-#include "tools.h"
+#include "tools.h" //LOL
 
 int minInt(int a, int b)
 {
