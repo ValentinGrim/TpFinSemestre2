@@ -69,6 +69,10 @@ void freeTextures(Textures *textures)
         if (textures->gameArea)
             destroyTexture(textures->gameArea);
 
+        // Lib�ration du fond de la zone de jeu
+        if (textures->string)
+            destroyTexture(textures->string);
+
         free(textures);
     }
 }

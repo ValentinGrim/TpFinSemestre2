@@ -78,6 +78,7 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     //******************************************************************************************************************
     // Fond de la guitare
 
+
     renderTexture(textures->string, renderer, x, y);
 
     //******************************************************************************************************************
