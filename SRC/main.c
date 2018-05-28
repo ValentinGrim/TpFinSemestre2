@@ -114,7 +114,8 @@ int main(int argc, char** argv)
         printf("Erreur de creation de l'affichage\n");
         return EXIT_FAILURE;
     }
-
+    
+    initMetrics(gameDisp->metrics, nbStrings);
     //******************************************************************************************************************
     // Initialisation du controller
 

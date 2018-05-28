@@ -77,11 +77,12 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
 
     //******************************************************************************************************************
     // Fond de la guitare
-
-    x = metrics->string.x;
-    y = metrics->string.y;
-    renderTexture(textures->string, renderer, x, y);
-
+    for(int i=0; i>gameSheet->nbStrings; i++)
+    {
+      x = metrics->string[i].x;
+      y = metrics->string[i].y;
+      renderTexture(textures->string, renderer, x, y);
+    }
     //******************************************************************************************************************
     // Notes
 
