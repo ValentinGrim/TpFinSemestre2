@@ -51,34 +51,32 @@ void placeNotes(SheetMusic *sheet)
 void placeNotesStaff(Note * notes, int nbNotes, int nbStrings)
 {
 
-    int i = 0;
-    int CurrentString = nbStrings/2;
+    int i;
     for(i = 1 ;  i < nbNotes ; i++)
     {
 
         if(notes[i].value < notes[i-1].value)
         {
 
-          if(CurrentString = 0)
+          if(notes[i-1].stringIdx > 0)
           {
 
-            notes[i].stringIdx = 0;
+            notes[i].stringIdx = notes[i-1].stringIdx -1;
 
           }
 
           else
           {
 
-            CurrentString--;
-            notes[i].stringIdx = CurrentString;
-
+            notes[i].stringIdx = 0;
           }
+
         }
 
         if(notes[i].value > notes[i-1].value)
         {
 
-          if(CurrentString = nbStrings - 1)
+          if(notes[i-1].stringIdx >= nbStrings - 1)
           {
 
             notes[i].stringIdx = nbStrings - 1;
@@ -88,8 +86,7 @@ void placeNotesStaff(Note * notes, int nbNotes, int nbStrings)
           else
           {
 
-            CurrentString++;
-            notes[i].stringIdx = CurrentString;
+            notes[i].stringIdx = notes[i-1].stringIdx + 1;
 
           }
         }
@@ -98,7 +95,7 @@ void placeNotesStaff(Note * notes, int nbNotes, int nbStrings)
        {
 
 
-          notes[i].stringIdx = CurrentString;
+          notes[i].stringIdx = notes[i-1].stringIdx;
 
         }
     }
