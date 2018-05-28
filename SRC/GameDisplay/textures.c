@@ -34,6 +34,14 @@ Textures * newTextures(SDL_Renderer *renderer)
         if (textures->notes[i] == NULL) goto ERROR_LABEL;
     }
 
+    for (i = 0; i < MAX_STRINGS; i++)
+    {
+        // Chargement de la strums
+        sprintf(posToWrite, "strum_%d.png", i + 1);
+        textures->strum[i] = loadTexture(imgPath, renderer);
+        if (textures->strum[i] == NULL) goto ERROR_LABEL;
+    }
+
     // Chargement du fond
     sprintf(posToWrite, "background.png");
     textures->background = loadTexture(imgPath, renderer);
@@ -48,6 +56,7 @@ Textures * newTextures(SDL_Renderer *renderer)
     sprintf(posToWrite, "string.png");
     textures->string = loadTexture(imgPath, renderer);
     if (textures->string == NULL) goto ERROR_LABEL;
+
 
     return textures;
 

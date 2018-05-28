@@ -17,6 +17,7 @@ typedef struct Metrics_s
     SDL_Rect note;
     SDL_Rect gameArea;
     SDL_Rect *string;
+    SDL_Rect *strum;
 } Metrics;
 
 

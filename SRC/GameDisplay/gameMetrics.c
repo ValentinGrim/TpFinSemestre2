@@ -28,7 +28,7 @@ Metrics * newMetrics(Textures * textures)
     metrics->screen.y = 0;
     metrics->screen.w = WINDOW_WIDTH;
     metrics->screen.h = WINDOW_HEIGHT;
-		
+
     SDL_QueryTexture(textures->notes[0], NULL, NULL, &w, &h);
     metrics->note.x = 0;
     metrics->note.y = 0;
@@ -40,7 +40,6 @@ Metrics * newMetrics(Textures * textures)
     metrics->gameArea.y = (metrics->screen.h - h) / 2;
     metrics->gameArea.w = w;
     metrics->gameArea.h = h;
-
 
 
  return metrics;
@@ -55,12 +54,16 @@ void initMetrics(Metrics * metrics, int nbStrings)
 {
     // TODO : calculer les positions des �l�ments en fonction du nombre de cordes
 		metrics->string = calloc(nbStrings, sizeof(SDL_Rect));
+		metrics->strum = calloc(nbStrings, sizeof(SDL_Rect));
 		int i;
 		for (i=0; i<nbStrings; i++)
 		{
 			metrics->string[i].x=((metrics->gameArea.w)/(nbStrings + 1))*(i+1)+metrics->gameArea.x;
-			metrics->string[i].y=metrics->gameArea.y;
+			metrics->string[i].y=metrics->gameArea.y+100;
+
+			metrics->strum[i].x=((metrics->gameArea.w)/(nbStrings + 1))*(i+1)+metrics->gameArea.x;
+			metrics->strum[i].y=metrics->gameArea.y+100;
 
 		}
 
-}
+	}
