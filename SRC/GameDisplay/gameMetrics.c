@@ -41,13 +41,13 @@ Metrics * newMetrics(Textures * textures)
     metrics->gameArea.w = w;
     metrics->gameArea.h = h;
 
+
 		SDL_QueryTexture(textures->string, NULL, NULL, &w, &h);
-		metrics->string.x = (metrics->screen.w - w)/2;
-		metrics->string.y = (metrics->screen.h - h)/2;
+		metrics->string.x = (metrics->screen.w - w);
+		metrics->string.y = (metrics->screen.h - h);
 		metrics->string.w = w;
 		metrics->string.h = h;
 
-    return metrics;
 }
 
 void freeMetrics(Metrics * metrics)
@@ -67,5 +67,6 @@ void initMetrics(Metrics * metrics, int nbStrings)
 
 				break;
 		}*/
+
 
 }

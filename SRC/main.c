@@ -48,7 +48,7 @@ int main(int argc, char** argv)
     float relSpeed;
 
     //******************************************************************************************************************
-    // Récupération des arguments du main
+    // Rï¿½cupï¿½ration des arguments du main
 
     if (argc < 3)
     {
@@ -85,7 +85,7 @@ int main(int argc, char** argv)
     printSheetMusic(sheet);
 
     //******************************************************************************************************************
-    // Initialisation du modèle
+    // Initialisation du modï¿½le
 
     relSpeed = nbStrings * SPEED;
     model = newModel(sheet, relSpeed);
@@ -156,18 +156,18 @@ int main(int argc, char** argv)
 
     while (!(model->keys->quitDown || model->keys->exitDown))
     {
-        // Mise à jour du controller
+        // Mise ï¿½ jour du controller
         processGameEvents(config, model->keys);
 
-        // Mise à jour du modèle
+        // Mise ï¿½ jour du modï¿½le
         updateModel(model);
 
-        // Mise à jour de la vue
+        // Mise ï¿½ jour de la vue
         updateGameDisplay(gameDisp, mainWindow, model);
     }
 
     //******************************************************************************************************************
-    // Libération de la mémoire
+    // Libï¿½ration de la mï¿½moire
 
     freeGameConfig(config);
     freeModel(model);
