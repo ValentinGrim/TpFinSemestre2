@@ -35,7 +35,7 @@ Textures * newTextures(SDL_Renderer *renderer)
     }
 
     // Chargement du fond de la zone de jeu
-    sprintf(posToWrite, "background.png");
+    sprintf(posToWrite, "game_area.png");
     textures->gameArea = loadTexture(imgPath, renderer);
     if (textures->gameArea == NULL) goto ERROR_LABEL;
 

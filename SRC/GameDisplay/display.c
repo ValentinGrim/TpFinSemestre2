@@ -64,7 +64,7 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     metrics = gameDisp->metrics;
 
     //******************************************************************************************************************
-    // Remise à zéro de l'affichage
+    // Remise ï¿½ zï¿½ro de l'affichage
 
     SDL_RenderClear(renderer);
 
@@ -74,6 +74,7 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     x = metrics->gameArea.x;
     y = metrics->gameArea.y;
     renderTexture(textures->gameArea, renderer, x, y);
+    renderTexture(texture->string, renderer, x, y);
 
     //******************************************************************************************************************
     // Notes
@@ -85,7 +86,7 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     renderTexture(textures->notes[stringIdx], renderer, x, y);
 
     //******************************************************************************************************************
-    // Mise à jour de l'affichage
+    // Mise ï¿½ jour de l'affichage
 
     SDL_RenderPresent(renderer);
 }

@@ -15,6 +15,7 @@ typedef struct Textures_s
 {
     SDL_Texture *notes[MAX_STRINGS];
     SDL_Texture *gameArea;
+		SDL_Texture *string;
 } Textures;
 
 Textures * newTextures(SDL_Renderer *renderer);
