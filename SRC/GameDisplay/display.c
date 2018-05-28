@@ -74,7 +74,7 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     x = metrics->gameArea.x;
     y = metrics->gameArea.y;
     renderTexture(textures->gameArea, renderer, x, y);
-    renderTexture(texture->string, renderer, x, y);
+  
 
     //******************************************************************************************************************
     // Notes
