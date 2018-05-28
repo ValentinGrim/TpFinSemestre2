@@ -51,7 +51,8 @@ void placeNotes(SheetMusic *sheet)
 void placeNotesStaff(Note * notes, int nbNotes, int nbStrings)
 {
 
-  int i = 0, int CurrentString = nbStrings/2;
+  int i = 0;
+  int CurrentString = nbStrings/2;
   for(i = 1 ;  i < nbNotes ; i++)
   {
 
@@ -91,6 +92,6 @@ void placeNotesStaff(Note * notes, int nbNotes, int nbStrings)
           notes[i].stringIdx = CurrentString;
 
         }
-      }    
+      }
   }
 }
