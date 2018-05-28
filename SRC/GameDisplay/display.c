@@ -69,7 +69,7 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     SDL_RenderClear(renderer);
 
     //******************************************************************************************************************
-    // Fond de la guitare
+    // Fond d'écran
 
     x = metrics->screen.x;
     y = metrics->screen.y;
@@ -83,7 +83,7 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     renderTexture(textures->gameArea, renderer, x, y);
 
     //******************************************************************************************************************
-    // Fond de la guitare
+    // COOOOOOOOOORDES
     for(int i=0; i<gameSheet->nbStrings; i++)
     {
       x = metrics->string[i].x;
