@@ -51,5 +51,16 @@ void freeMetrics(Metrics * metrics)
 
 void initMetrics(Metrics * metrics, int nbStrings)
 {
-    // TODO : calculer les positions des éléments en fonction du nombre de cordes
+    // TODO : calculer les positions des ï¿½lï¿½ments en fonction du nombre de cordes
+		switch (nbStrings)
+		{
+			case 3:
+
+			case 4:
+
+			case 5:
+
+				break;
+		}
+
 }

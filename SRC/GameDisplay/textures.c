@@ -35,7 +35,7 @@ Textures * newTextures(SDL_Renderer *renderer)
     }
 
     // Chargement du fond de la zone de jeu
-    sprintf(posToWrite, "game_area.png");
+    sprintf(posToWrite, "background.png");
     textures->gameArea = loadTexture(imgPath, renderer);
     if (textures->gameArea == NULL) goto ERROR_LABEL;
 
@@ -55,12 +55,12 @@ void freeTextures(Textures *textures)
     {
         for (i = 0; i < MAX_STRINGS; i++)
         {
-            // Libération de la note
+            // Libï¿½ration de la note
             if (textures->notes[i])
                 destroyTexture(textures->notes[i]);
         }
 
-        // Libération du fond de la zone de jeu
+        // Libï¿½ration du fond de la zone de jeu
         if (textures->gameArea)
             destroyTexture(textures->gameArea);
 
@@ -93,10 +93,9 @@ void renderTexture(SDL_Texture *texture, SDL_Renderer *renderer, int x, int y)
     rect.x = x;
     rect.y = y;
 
-    // On réccupère la largeur et la hauteur de la texture
+    // On rï¿½ccupï¿½re la largeur et la hauteur de la texture
     SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
 
     // On la copie dans le rendu
     SDL_RenderCopy(renderer, texture, NULL, &rect);
 }
-
