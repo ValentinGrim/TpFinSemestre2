@@ -71,6 +71,13 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     //******************************************************************************************************************
     // Fond de la guitare
 
+    x = metrics->screen.x;
+    y = metrics->screen.y;
+    renderTexture(textures->background, renderer, x, y);
+
+    //******************************************************************************************************************
+    // Fond de la guitare
+
     x = metrics->gameArea.x;
     y = metrics->gameArea.y;
     renderTexture(textures->gameArea, renderer, x, y);

@@ -28,7 +28,7 @@ Metrics * newMetrics(Textures * textures)
     metrics->screen.y = 0;
     metrics->screen.w = WINDOW_WIDTH;
     metrics->screen.h = WINDOW_HEIGHT;
-
+		
     SDL_QueryTexture(textures->notes[0], NULL, NULL, &w, &h);
     metrics->note.x = 0;
     metrics->note.y = 0;
