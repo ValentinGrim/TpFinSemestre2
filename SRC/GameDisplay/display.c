@@ -90,6 +90,16 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
       y = metrics->string[i].y;
       renderTexture(textures->string, renderer, x, y);
     }
+
+    //******************************************************************************************************************
+    // Fond de la strum
+    for(int i=0; i<gameSheet->nbStrings; i++)
+    {
+      x = metrics->strum[i].x;
+      y = metrics->strum[i].y;
+      renderTexture(textures->strum[i], renderer, x, y);
+    }
+
     //******************************************************************************************************************
     // Notes
 
