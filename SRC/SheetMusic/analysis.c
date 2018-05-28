@@ -53,7 +53,7 @@ void placeNotesStaff(Note * notes, int nbNotes, int nbStrings)
     switch(nbStrings){
 
       case 3:
-
+        
         break;
 
       case 4:
@@ -68,5 +68,5 @@ void placeNotesStaff(Note * notes, int nbNotes, int nbStrings)
 
     }
 
-    
+
 }
