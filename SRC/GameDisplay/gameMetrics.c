@@ -52,18 +52,14 @@ void freeMetrics(Metrics * metrics)
 void initMetrics(Metrics * metrics, int nbStrings)
 {
     // TODO : calculer les positions des �l�ments en fonction du nombre de cordes
-		switch (nbStrings)
+/*		switch (nbStrings)
 		{
-			case 3:metrics->gameArea.x = (metrics->screen.w - w) / 2;
-	    metrics->gameArea.y = (metrics->screen.h - h) / 2;
-	    metrics->gameArea.w = w;
-	    metrics->gameArea.h = h;
 
 			case 4:
 
 			case 5:
 
 				break;
-		}
+		}*/
 
 }

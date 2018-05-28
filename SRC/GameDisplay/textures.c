@@ -39,6 +39,11 @@ Textures * newTextures(SDL_Renderer *renderer)
     textures->gameArea = loadTexture(imgPath, renderer);
     if (textures->gameArea == NULL) goto ERROR_LABEL;
 
+    // Chargement du fond de la cordes
+    sprintf(posToWrite, "string.png");
+    textures->string = loadTexture(imgPath, renderer);
+    if (textures->string == NULL) goto ERROR_LABEL;
+
     return textures;
 
 ERROR_LABEL:
