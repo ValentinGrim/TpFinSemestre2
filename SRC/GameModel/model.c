@@ -84,22 +84,24 @@ void updateGameSheet(GameSheet *sheet, Timer *timer)
     notes = sheet->notes[staffIdx];
 
     // TODO : Faire descendre les notes
-    // Voici une démo
+    // Voici une dï¿½mo
 
-    i = 0;
-    if (notes[i].relPos > 1)
+    for(i = 0; i < sheet->nbNotes[staffIdx]; i++)
     {
-        notes[i].relPos = 0.0f;
-    }
-    else
-    {
+      float fallTime = notes[i].playingTime - timer->timeBeforeStrum * timer->relSpeed;
+      if(fallTime < timer->currentTime)
+      {
+
         notes[i].relPos += timer->delta * timer->relSpeed;
+
+      }
+
     }
 }
 
 void checkStrum(Model *model)
 {
-    // TODO : Gérer les actions du joueur et modifier l'état des notes
+    // TODO : Gï¿½rer les actions du joueur et modifier l'ï¿½tat des notes
 }
 
 Model * newModel(SheetMusic * sheet, float relSpeed)
