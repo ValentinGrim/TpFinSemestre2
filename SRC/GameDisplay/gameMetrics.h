@@ -16,6 +16,7 @@ typedef struct Metrics_s
     SDL_Rect screen;
     SDL_Rect note;
     SDL_Rect gameArea;
+    SDL_Rect string;
 } Metrics;
 
 Metrics * newMetrics(Textures * textures);

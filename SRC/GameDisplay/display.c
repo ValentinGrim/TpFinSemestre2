@@ -78,7 +78,8 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     //******************************************************************************************************************
     // Fond de la guitare
 
-
+    x = metrics->string.x;
+    y = metrics->string.y;
     renderTexture(textures->string, renderer, x, y);
 
     //******************************************************************************************************************
