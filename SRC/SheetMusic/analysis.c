@@ -50,5 +50,23 @@ void placeNotes(SheetMusic *sheet)
 
 void placeNotesStaff(Note * notes, int nbNotes, int nbStrings)
 {
-    // TODO : Algorithme de placement des notes
+    switch(nbStrings){
+
+      case 3:
+
+        break;
+
+      case 4:
+
+        break;
+
+      case 5:
+
+        break;
+
+      default :
+
+    }
+
+    
 }
