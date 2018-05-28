@@ -93,5 +93,12 @@ void placeNotesStaff(Note * notes, int nbNotes, int nbStrings)
 
         }
       }
+
+      else
+      {
+
+        notes[i].stringIdx = CurrentString;
+        
+      }
   }
 }
