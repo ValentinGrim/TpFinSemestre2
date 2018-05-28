@@ -51,24 +51,4 @@ void placeNotes(SheetMusic *sheet)
 void placeNotesStaff(Note * notes, int nbNotes, int nbStrings)
 {
 
-<<<<<<< HEAD
-=======
-      case 3:
-        
-        break;
-
-      case 4:
-
-        break;
-
-      case 5:
-
-        break;
-
-      default :
-
-    }
-
-
->>>>>>> 59269446baa6cdd789313dae8f01ab02d90bc10e
 }
