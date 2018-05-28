@@ -50,53 +50,52 @@ void placeNotes(SheetMusic *sheet)
 
 void placeNotesStaff(Note * notes, int nbNotes, int nbStrings)
 {
+  for(int i = 1 ; i < nbNotes ; i++)
+  {
 
-    int i;
-    for(i = 1 ;  i < nbNotes ; i++)
+    if(notes[i].value < notes[i-1].value)
     {
 
-        if(notes[i].value < notes[i-1].value)
-        {
+      if(notes[i-1].stringIdx <= 0)
+      {
 
-          if(notes[i-1].stringIdx > 0)
-          {
+        notes[i].stringIdx = notes[i-1].stringIdx;
 
-            notes[i].stringIdx = notes[i-1].stringIdx -1;
+      }
 
-          }
+      else
+      {
 
-          else
-          {
+        notes[i].stringIdx = notes[i-1].stringIdx - 1;
 
-            notes[i].stringIdx = 0;
-          }
+      }
 
-        }
-
-        if(notes[i].value > notes[i-1].value)
-        {
-
-          if(notes[i-1].stringIdx >= nbStrings - 1)
-          {
-
-            notes[i].stringIdx = nbStrings - 1;
-
-          }
-
-          else
-          {
-
-            notes[i].stringIdx = notes[i-1].stringIdx + 1;
-
-          }
-        }
-
-        else
-       {
-
-
-          notes[i].stringIdx = notes[i-1].stringIdx;
-
-        }
     }
+
+    else if(notes[i].value > notes[i-1].value)
+    {
+
+      if(notes[i-1].stringIdx >= nbStrings - 1)
+      {
+
+        notes[i].stringIdx = notes[i-1].stringIdx;
+
+      }
+
+      else
+      {
+
+        notes[i].stringIdx = notes[i-1].stringIdx + 1;
+
+      }
+
+    }
+
+    else
+    {
+
+      notes[i].stringIdx = notes[i-1].stringIdx;
+
+    }
+  }
 }
