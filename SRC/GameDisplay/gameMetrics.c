@@ -58,7 +58,7 @@ void initMetrics(Metrics * metrics, int nbStrings)
 		int i;
 		for (i=0; i<nbStrings; i++)
 		{
-				metrics->string[i].x=((metrics->gameArea.w)/(nbStrings + 1)*(i+1)+metrics->gameArea.x);
+			metrics->string[i].x=((metrics->gameArea.w)/(nbStrings + 1))*(i+1)+metrics->gameArea.x;
 			metrics->string[i].y=metrics->gameArea.y;
 
 		}

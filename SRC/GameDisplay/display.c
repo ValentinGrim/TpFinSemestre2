@@ -77,7 +77,7 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
 
     //******************************************************************************************************************
     // Fond de la guitare
-    for(int i=0; i>gameSheet->nbStrings; i++)
+    for(int i=0; i<gameSheet->nbStrings; i++)
     {
       x = metrics->string[i].x;
       y = metrics->string[i].y;
