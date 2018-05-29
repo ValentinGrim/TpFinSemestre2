@@ -41,6 +41,7 @@ Metrics * newMetrics(Textures * textures)
     metrics->gameArea.w = w;
     metrics->gameArea.h = h;
 
+		/*pour centrer strum proprement faire spawn en calculant largeur strum*/
 
  return metrics;
 }
@@ -59,10 +60,10 @@ void initMetrics(Metrics * metrics, int nbStrings)
 		for (i=0; i<nbStrings; i++)
 		{
 			metrics->string[i].x=((metrics->gameArea.w)/(nbStrings + 1))*(i+1)+metrics->gameArea.x;
-			metrics->string[i].y=metrics->gameArea.y+100;
+			metrics->string[i].y=(metrics->gameArea.y)+(metrics->gameArea.h)*0.2;
 
-			metrics->strum[i].x=((metrics->gameArea.w)/(nbStrings + 1))*(i+1)+metrics->gameArea.x;
-			metrics->strum[i].y=metrics->gameArea.y+100;
+			metrics->strum[i].x=((metrics->gameArea.w)/(nbStrings + 1))*(i+1)+(metrics->gameArea.x)*0.95;
+			metrics->strum[i].y=(metrics->gameArea.y)+(metrics->gameArea.h)*0.85;
 
 		}
 
