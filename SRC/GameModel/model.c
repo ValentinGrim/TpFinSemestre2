@@ -91,7 +91,7 @@ void updateGameSheet(GameSheet *sheet, Timer *timer)
     for(i = 0; i < sheet->nbNotes[staffIdx]; i++)
     {
       float fallTime = notes[i].playingTime - timer->timeBeforeStrum;
-      float falledTime = notes[i].playingTime + timer->timeAfterStrum;
+      float falledTime = notes[i].playingTime + timer->timeAfterStrum - 0.1;
       if(fallTime < timer->currentTime)
       {
 
@@ -106,9 +106,12 @@ void updateGameSheet(GameSheet *sheet, Timer *timer)
 
       }
 
+      if(fallTime > timer->currentTime && falledTime > timer->currentTime)
+      {
 
+        notes[i].visible = 0;
 
-
+      }
     }
 }
 
