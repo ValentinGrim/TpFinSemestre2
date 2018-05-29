@@ -92,7 +92,7 @@ void updateGameSheet(GameSheet *sheet, Timer *timer)
     {
       float fallTime = notes[i].playingTime - timer->timeBeforeStrum;
       float falledTime = notes[i].playingTime + timer->timeAfterStrum - 0.1;
-      if(fallTime < timer->currentTime)
+      if(fallTime < timer->currentTime && notes[i].state == stateAlive)
       {
 
         notes[i].visible = 1;
@@ -118,6 +118,9 @@ void updateGameSheet(GameSheet *sheet, Timer *timer)
 void checkStrum(Model *model)
 {
     // TODO : Gérer les actions du joueur et modifier l'état des notes
+    int xXcOmbOXx = 10;
+    int cOmbOMult;
+
     int nbNotes=*(model->gameSheet->nbNotes),i;
     GameNote *notes;
 
@@ -128,6 +131,58 @@ void checkStrum(Model *model)
 
     for(i=0;i<nbNotes;i++)
      {
+
+       switch(xXcOmbOXx/10)
+       {
+         case 0:
+           cOmbOMult = 1;
+           break;
+
+         case 1:
+           cOmbOMult = 2;
+           break;
+
+         case 2:
+           cOmbOMult = 4;
+           break;
+
+         case 3:
+           cOmbOMult = 10;
+           break;
+
+         case 4:
+           cOmbOMult = 20;
+           break;
+
+         case 5:
+           cOmbOMult = 20;
+           break;
+
+         case 6:
+           cOmbOMult = 20;
+           break;
+
+         case 7:
+           cOmbOMult = 20;
+           break;
+
+         case 8:
+           cOmbOMult = 20;
+           break;
+
+         case 9:
+           cOmbOMult = 20;
+           break;
+
+         case 10:
+           cOmbOMult = 50;
+           break;
+
+         default:
+           cOmbOMult = 50;
+
+       }
+
      	if(notes[i].visible==1&& notes[i].state!=statePlayed)
      	{
      		string=notes[i].stringIdx;
@@ -135,11 +190,28 @@ void checkStrum(Model *model)
      		if((notes[i].playingTime <= model->timer->currentTime+0.09) &&(notes[i].playingTime >= model->timer->currentTime-0.09) && (model->keys->fretDown[string]==1))
      		{
 
+          xXcOmbOXx++;
      			notes[i].state=statePlayed;
      			notes[i].visible=0;
-     			model->points+=100;
+     			model->points+=(50 * cOmbOMult);
      			printf("points:%d  %d\n",(i+1)*100, model->points);
      		}
+        if(notes[i].playingTime+0.09 < model->timer->currentTime && notes[i].state == stateAlive)
+        {
+
+          if(xXcOmbOXx > 40)
+          {
+
+            xXcOmbOXx = 40;
+
+          }
+
+          xXcOmbOXx--;
+          notes[i].state = stateFailed;
+          model->points-= (10 * cOmbOMult);
+          printf("Note %d raté, points : %d\n", i+1, model->points);
+
+        }
      	}
      }
 
