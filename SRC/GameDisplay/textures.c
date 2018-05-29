@@ -40,6 +40,11 @@ Textures * newTextures(SDL_Renderer *renderer)
         sprintf(posToWrite, "strum_%d.png", i + 1);
         textures->strum[i] = loadTexture(imgPath, renderer);
         if (textures->strum[i] == NULL) goto ERROR_LABEL;
+
+        sprintf(posToWrite, "strum_%d_held.png", i + 1);
+        textures->strum_held[i] = loadTexture(imgPath, renderer);
+        if (textures->strum_held[i] == NULL) goto ERROR_LABEL;
+
     }
 
     // Chargement du fond

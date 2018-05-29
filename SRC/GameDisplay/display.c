@@ -97,7 +97,16 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     {
       x = metrics->strum[i].x;
       y = metrics->strum[i].y;
-      renderTexture(textures->strum[i], renderer, x, y);
+
+      if (model->keys->fretDown[i]==1)
+        {
+            renderTexture(textures->strum_held[i], renderer, x, y);
+        }
+      else
+        {
+            renderTexture(textures->strum[i], renderer, x, y);
+        }
+
     }
 
     //******************************************************************************************************************

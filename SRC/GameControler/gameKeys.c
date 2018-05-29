@@ -74,18 +74,30 @@ void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys)
     //******************************************************************************************************************
     // Parcourt des events
 
-    // TODO : Gérer les actions de l'utilisateur
+    // TODO : Gï¿½rer les actions de l'utilisateur
 
     while ( SDL_PollEvent( &evt ) )
     {
         switch ( evt.type )
         {
-        case SDL_QUIT: //......................................................................... La fenêtre est fermée
+        case SDL_QUIT: //......................................................................... La fenï¿½tre est fermï¿½e
             gameKeys->quitDown = 1;
             break;
 
-        case SDL_KEYDOWN: //..................................................................... Une touche est appuyée
+        case SDL_KEYDOWN: //..................................................................... Une touche est appuyï¿½e
             scanCode = evt.key.keysym.scancode;
+
+						for(int i = 0 ; i < MAX_STRINGS ; i++)
+						{
+
+							if(scanCode == config->fretValues[i])
+							{
+
+								gameKeys->fretDown[i] = 1;
+
+							}
+						}
+
 
             if ( evt.key.repeat )
                 break;
@@ -97,9 +109,20 @@ void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys)
             }
             break;
 
-        case SDL_KEYUP: //...................................................................... Une touche est relachée
-            scanCode = evt.key.keysym.scancode;
-            break;
-        }
-    }
+        case SDL_KEYUP: //...................................................................... Une touche est relachï¿½e
+
+						scanCode = evt.key.keysym.scancode;
+						for(int i = 0 ; i < MAX_STRINGS ; i++)
+						{
+
+							if(scanCode == config->fretValues[i])
+							{
+
+								gameKeys->fretDown[i] = 0;
+
+							}
+            
+        	}
+    	}
+		}
 }
