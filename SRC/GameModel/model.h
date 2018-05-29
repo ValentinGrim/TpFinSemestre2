@@ -63,7 +63,7 @@ typedef struct Model_s
     GameSheet * gameSheet;
     GameKeys * keys;
     Timer * timer;
-    float points;
+    int points;
 } Model;
 
 Model * newModel(SheetMusic * sheet, float relSpeed);

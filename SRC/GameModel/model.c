@@ -117,7 +117,33 @@ void updateGameSheet(GameSheet *sheet, Timer *timer)
 
 void checkStrum(Model *model)
 {
-    // TODO : G�rer les actions du joueur et modifier l'�tat des notes
+    // TODO : Gérer les actions du joueur et modifier l'état des notes
+    int nbNotes=*(model->gameSheet->nbNotes),i;
+    GameNote *notes;
+
+    int string;
+
+    int staffIdx = model->gameSheet->staffIdx;
+    notes = model->gameSheet->notes[staffIdx];
+
+    for(i=0;i<nbNotes;i++)
+     {
+     	if(notes[i].visible==1&& notes[i].state!=statePlayed)
+     	{
+     		string=notes[i].stringIdx;
+
+     		if((notes[i].playingTime <= model->timer->currentTime+0.09) &&(notes[i].playingTime >= model->timer->currentTime-0.09) && (model->keys->fretDown[string]==1))
+     		{
+
+     			notes[i].state=statePlayed;
+     			notes[i].visible=0;
+     			model->points+=100;
+     			printf("points:%d  %d\n",(i+1)*100, model->points);
+     		}
+     	}
+     }
+
+
 }
 
 Model * newModel(SheetMusic * sheet, float relSpeed)
