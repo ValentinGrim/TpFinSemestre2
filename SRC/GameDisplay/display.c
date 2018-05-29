@@ -111,12 +111,23 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
 
     //******************************************************************************************************************
     // Notes
+    for(int i = 0; i < gameSheet->nbNotes[3]; i++)
+    {
 
-    curNote = &notes[0];
+      if(notes[i].visible == 1)
+      {
+        curNote = &notes[i];
+        stringIdx = curNote->stringIdx;
+        x = ((metrics->gameArea.w)/(gameSheet->nbStrings+1))*(notes[i].stringIdx+1) + (metrics->gameArea.x)*0,95;
+        y = metrics->gameArea.y + curNote->relPos * metrics->gameArea.h;
+        renderTexture(textures->notes[stringIdx], renderer, x,y);
+      }
+    }
+    /*curNote = &notes[0];
     stringIdx = curNote->stringIdx;
     x = metrics->gameArea.x + (metrics->gameArea.w - metrics->note.w) / 2;
     y = metrics->gameArea.y + curNote->relPos * metrics->gameArea.h;
-    renderTexture(textures->notes[stringIdx], renderer, x, y);
+    renderTexture(textures->notes[stringIdx], renderer, x, y);*/
 
     //******************************************************************************************************************
     // Mise � jour de l'affichage
