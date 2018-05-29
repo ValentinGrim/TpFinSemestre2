@@ -32,6 +32,8 @@ GameSheet * newGameSheet(SheetMusic * sheet)
         gameSheet->notes[i] = (GameNote *)calloc(sheet->nbNotes[i], sizeof(GameNote));
     }
 
+    gameSheet->staffIdx = 0;
+
     for (i = 0; i < nbStaves; i++)
     {
         for (noteIdx = 0; noteIdx < sheet->nbNotes[i]; noteIdx++)
@@ -88,13 +90,24 @@ void updateGameSheet(GameSheet *sheet, Timer *timer)
 
     for(i = 0; i < sheet->nbNotes[staffIdx]; i++)
     {
-      float fallTime = notes[i].playingTime - timer->timeBeforeStrum * timer->relSpeed;
+      float fallTime = notes[i].playingTime - timer->timeBeforeStrum;
+      float falledTime = notes[i].playingTime + timer->timeAfterStrum;
       if(fallTime < timer->currentTime)
       {
 
+        notes[i].visible = 1;
         notes[i].relPos += timer->delta * timer->relSpeed;
 
       }
+      if(falledTime < timer->currentTime)
+      {
+
+        notes[i].visible = 0;
+
+      }
+
+
+
 
     }
 }

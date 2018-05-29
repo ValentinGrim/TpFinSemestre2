@@ -65,6 +65,7 @@ void initMetrics(Metrics * metrics, int nbStrings)
 			metrics->strum[i].x=((metrics->gameArea.w)/(nbStrings + 1))*(i+1)+(metrics->gameArea.x)*0.95;
 			metrics->strum[i].y=(metrics->gameArea.y)+(metrics->gameArea.h)*0.85;
 
+
 		}
 
 	}

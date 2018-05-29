@@ -111,14 +111,14 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
 
     //******************************************************************************************************************
     // Notes
-    for(int i = 0; i < gameSheet->nbNotes[3]; i++)
+    for(int i = 0; i < gameSheet->nbNotes[staffIdx]; i++)
     {
 
       if(notes[i].visible == 1)
       {
         curNote = &notes[i];
         stringIdx = curNote->stringIdx;
-        x = ((metrics->gameArea.w)/(gameSheet->nbStrings+1))*(notes[i].stringIdx+1) + (metrics->gameArea.x)*0,95;
+        x = ((metrics->gameArea.w)/(gameSheet->nbStrings + 1))*(notes[i].stringIdx+1)+(metrics->gameArea.x)*0.95;
         y = metrics->gameArea.y + curNote->relPos * metrics->gameArea.h;
         renderTexture(textures->notes[stringIdx], renderer, x,y);
       }
