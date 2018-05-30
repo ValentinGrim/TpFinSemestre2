@@ -33,6 +33,6 @@ typedef struct GameKeys_s
 GameKeys * newGameKeys();
 void freeGameKeys(GameKeys * gameKeys);
 
-void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys);
+void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys, char * nomfichier, int *  highScores, int * points);
 
 #endif

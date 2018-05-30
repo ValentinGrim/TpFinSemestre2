@@ -70,11 +70,12 @@ typedef struct Model_s
     int highScores[3];
     int xXcOmbOXx;
     int life;
+    char nomfichier[1024];
 } Model;
 
 void TabPoints(Model *model);
 
-Model * newModel(SheetMusic * sheet, float relSpeed);
+Model * newModel(SheetMusic * sheet, float relSpeed, char * arg);
 void freeModel(Model * model);
 
 void updateModel(Model *model);

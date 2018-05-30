@@ -34,6 +34,16 @@ int playMusicWithDelay(void *ptr)
 
 int main(int argc, char** argv)
 {
+
+    char** new_argv = malloc((argc+1) * sizeof *new_argv);
+    for(int i = 0; i < argc; ++i)
+    {
+        size_t length = strlen(argv[i])+1;
+        new_argv[i] = malloc(length);
+        memcpy(new_argv[i], argv[i], length);
+    }
+    new_argv[argc] = NULL;
+
     MainWindow * mainWindow = NULL;
     SDLGameConfig * config = NULL;
     Mix_Music * music = NULL;
@@ -88,7 +98,7 @@ int main(int argc, char** argv)
     // Initialisation du mod�le
 
     relSpeed = nbStrings * SPEED;
-    model = newModel(sheet, relSpeed);
+    model = newModel(sheet, relSpeed, new_argv[1]);
     if (!model)
     {
         printf("Erreur de creation du modele\n");
@@ -114,7 +124,7 @@ int main(int argc, char** argv)
         printf("Erreur de creation de l'affichage\n");
         return EXIT_FAILURE;
     }
-    
+
     initMetrics(gameDisp->metrics, nbStrings);
     //******************************************************************************************************************
     // Initialisation du controller
@@ -158,7 +168,7 @@ int main(int argc, char** argv)
     while (!(model->keys->quitDown || model->keys->exitDown))
     {
         // Mise � jour du controller
-        processGameEvents(config, model->keys);
+        processGameEvents(config, model->keys, model->nomfichier, model->highScores, model->points);
 
         // Mise � jour du mod�le
         updateModel(model);
@@ -178,6 +188,12 @@ int main(int argc, char** argv)
     Mix_FreeMusic(music);
     Mix_CloseAudio();
     quitSDL();
+
+    for(int i = 0; i < argc; ++i)
+    {
+      free(new_argv[i]);
+    }
+    free(new_argv);
 
     return EXIT_SUCCESS;
 }
