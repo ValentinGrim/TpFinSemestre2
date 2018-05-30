@@ -64,9 +64,13 @@ typedef struct Model_s
     GameKeys * keys;
     Timer * timer;
     int points;
+    int pointTab[7];
     int cOmbOMult;
     int xXcOmbOXx;
+    int life;
 } Model;
+
+void TabPoints(Model *model);
 
 Model * newModel(SheetMusic * sheet, float relSpeed);
 void freeModel(Model * model);
