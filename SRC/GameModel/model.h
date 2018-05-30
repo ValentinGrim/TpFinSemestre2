@@ -64,6 +64,8 @@ typedef struct Model_s
     GameKeys * keys;
     Timer * timer;
     int points;
+    int cOmbOMult;
+    int xXcOmbOXx;
 } Model;
 
 Model * newModel(SheetMusic * sheet, float relSpeed);
