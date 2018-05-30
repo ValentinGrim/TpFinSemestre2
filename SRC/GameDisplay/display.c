@@ -110,6 +110,14 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     }
 
     //******************************************************************************************************************
+    // Fond de la combo
+
+    x = 0;
+    y = 0;
+    renderTexture(textures->combo, renderer, x, y);
+
+
+    //******************************************************************************************************************
     // Notes
     for(int i = 0; i < gameSheet->nbNotes[staffIdx]; i++)
     {
