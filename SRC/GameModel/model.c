@@ -156,7 +156,7 @@ void checkStrum(Model *model)
       model->cOmbOMult = 10;
 
     }
-    
+
     int nbNotes=*(model->gameSheet->nbNotes),i;
     GameNote *notes;
 
@@ -224,6 +224,27 @@ void TabPoints(Model *model)
 
 Model * newModel(SheetMusic * sheet, float relSpeed)
 {
+
+    FILE *pFichier = NULL;
+    pFichier = fopen("scores.txt", "r");
+    if(!pFichier)
+    {
+
+      pFichier = fopen("scores.txt", "w");
+      fprintf(pFichier, "1 - 0\n2 - 0\n3 - 0");
+      model->highScores[0] = 0;
+      model->highScores[1] = 0;
+      model->highScores[2] = 0;
+
+    }
+
+    else
+    {
+
+      fscanf(pFichier,"1 - %d\n2 - %d\n3 - %d\n", model->highScores[0],model->highScores[1],model->highScores[2]);
+
+    }
+
     Model * model = NULL;
 
     if (!sheet)
@@ -245,7 +266,7 @@ Model * newModel(SheetMusic * sheet, float relSpeed)
       model->pointTab[i] = 0;
 
     }
-
+    fclose(pFichier);
     return model;
 }
 

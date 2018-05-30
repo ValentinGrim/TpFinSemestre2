@@ -173,13 +173,13 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     //******************************************************************************************************************
     // Scores
 
-    renderTexture(textures->chiffres[model->pointTab[0]], renderer , 150, 800);
-    renderTexture(textures->chiffres[model->pointTab[1]], renderer , 220, 800);
-    renderTexture(textures->chiffres[model->pointTab[2]], renderer , 290, 800);
-    renderTexture(textures->chiffres[model->pointTab[3]], renderer , 360, 800);
-    renderTexture(textures->chiffres[model->pointTab[4]], renderer , 430, 800);
-    renderTexture(textures->chiffres[model->pointTab[5]], renderer , 500, 800);
-    renderTexture(textures->chiffres[model->pointTab[6]], renderer , 570, 800);
+    renderTexture(textures->chiffres[model->pointTab[0]], renderer , 0, metrics->screen.h-70);
+    renderTexture(textures->chiffres[model->pointTab[1]], renderer , 70, metrics->screen.h-70);
+    renderTexture(textures->chiffres[model->pointTab[2]], renderer , 140, metrics->screen.h-70);
+    renderTexture(textures->chiffres[model->pointTab[3]], renderer , 210, metrics->screen.h-70);
+    renderTexture(textures->chiffres[model->pointTab[4]], renderer , 280, metrics->screen.h-70);
+    renderTexture(textures->chiffres[model->pointTab[5]], renderer , 350, metrics->screen.h-70);
+    renderTexture(textures->chiffres[model->pointTab[6]], renderer , 420, metrics->screen.h-70);
 
 
     //******************************************************************************************************************

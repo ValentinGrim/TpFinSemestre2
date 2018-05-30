@@ -67,6 +67,7 @@ typedef struct Model_s
     int points;
     int pointTab[7];
     int cOmbOMult;
+    int highScores[3];
     int xXcOmbOXx;
     int life;
 } Model;
