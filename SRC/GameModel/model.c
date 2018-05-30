@@ -243,7 +243,7 @@ Model * newModel(SheetMusic * sheet, float relSpeed)
     else
     {
 
-      fscanf(pFichier,"1 - %d\n2 - %d\n3 - %d\n", model->highScores[0],model->highScores[1],model->highScores[2]);
+      fscanf(pFichier,"1 - %d\n2 - %d\n3 - %d\n", &model->highScores[0],&model->highScores[1],&model->highScores[2]);
 
     }
 
