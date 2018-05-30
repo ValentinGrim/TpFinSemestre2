@@ -225,6 +225,8 @@ void TabPoints(Model *model)
 Model * newModel(SheetMusic * sheet, float relSpeed)
 {
 
+    Model * model = NULL;
+
     FILE *pFichier = NULL;
     pFichier = fopen("scores.txt", "r");
     if(!pFichier)
@@ -244,8 +246,6 @@ Model * newModel(SheetMusic * sheet, float relSpeed)
       fscanf(pFichier,"1 - %d\n2 - %d\n3 - %d\n", model->highScores[0],model->highScores[1],model->highScores[2]);
 
     }
-
-    Model * model = NULL;
 
     if (!sheet)
         return NULL;
