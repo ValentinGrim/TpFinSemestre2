@@ -119,6 +119,7 @@ void checkStrum(Model *model)
 {
     // TODO : Gérer les actions du joueur et modifier l'état des notes
     int xXcOmbOXx = 1;
+    int cOmbOMult;
 
     int nbNotes=*(model->gameSheet->nbNotes),i;
     GameNote *notes;
@@ -138,6 +139,8 @@ void checkStrum(Model *model)
      		if((notes[i].playingTime <= model->timer->currentTime+0.09) &&(notes[i].playingTime >= model->timer->currentTime-0.09) && (model->keys->fretDown[string]==1))
      		{
 
+          xXcOmbOXx++;
+          
           if(xXcOmbOXx < 10)
           {
 
@@ -175,12 +178,12 @@ void checkStrum(Model *model)
             cOmbOMult = 10;
 
           }
-          
-          xXcOmbOXx++;
+
      			notes[i].state=statePlayed;
      			notes[i].visible=0;
      			model->points+=(100 * cOmbOMult);
      			printf("points:%d  %d\n",(i+1)*100, model->points);
+          printf("%d et %d\n", xXcOmbOXx, cOmbOMult);
      		}
         if(notes[i].playingTime+0.09 < model->timer->currentTime && notes[i].state == stateAlive)
         {
