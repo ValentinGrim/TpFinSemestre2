@@ -5,6 +5,7 @@
 #define MAX_STRINGS 5
 #define STRUM_AREA 0.85f
 #define SPEED 0.13f
+#define MAX_COMBO 10
 
 // Duree minimale de note pour la considerer longue
 #define MINIMAL_LONG_NOTE 0.3
@@ -64,9 +65,13 @@ typedef struct Model_s
     GameKeys * keys;
     Timer * timer;
     int points;
+    int pointTab[7];
     int cOmbOMult;
     int xXcOmbOXx;
+    int life;
 } Model;
+
+void TabPoints(Model *model);
 
 Model * newModel(SheetMusic * sheet, float relSpeed);
 void freeModel(Model * model);
