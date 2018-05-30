@@ -20,7 +20,7 @@ typedef struct Textures_s
 		SDL_Texture *strum[MAX_STRINGS];
 		SDL_Texture *strum_held[MAX_STRINGS];
 		SDL_Texture *combo;
-		SDL_Texture *comboVal[MAX_COMBO];
+		SDL_Texture *chiffres[MAX_COMBO];
 } Textures;
 
 Textures * newTextures(SDL_Renderer *renderer);

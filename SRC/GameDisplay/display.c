@@ -121,45 +121,42 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
       case 1:
         x = 300;
         y = 150;
-        renderTexture(textures->comboVal[1], renderer, x, y);
+        renderTexture(textures->chiffres[1], renderer, x, y);
         break;
 
       case 2:
         x = 300;
         y = 150;
-        renderTexture(textures->comboVal[2], renderer, x, y);
+        renderTexture(textures->chiffres[2], renderer, x, y);
         break;
 
       case 3:
         x = 300;
         y = 150;
-        renderTexture(textures->comboVal[3], renderer, x, y);
+        renderTexture(textures->chiffres[3], renderer, x, y);
         break;
 
       case 4:
         x = 300;
         y = 150;
-        renderTexture(textures->comboVal[4], renderer, x, y);
+        renderTexture(textures->chiffres[4], renderer, x, y);
         break;
 
       case 5:
         x = 300;
         y = 150;
-        renderTexture(textures->comboVal[5], renderer, x, y);
+        renderTexture(textures->chiffres[5], renderer, x, y);
         break;
 
       case 10:
         x = 300;
         y = 150;
-        renderTexture(textures->comboVal[1], renderer, x, y);
-        renderTexture(textures->comboVal[0], renderer, x+50, y);
+        renderTexture(textures->chiffres[1], renderer, x, y);
+        renderTexture(textures->chiffres[0], renderer, x+70, y);
         break;
 
     }
 
-
-    //******************************************************************************************************************
-    // Notes
     for(int i = 0; i < gameSheet->nbNotes[staffIdx]; i++)
     {
 
@@ -172,11 +169,18 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
         renderTexture(textures->notes[stringIdx], renderer, x,y);
       }
     }
-    /*curNote = &notes[0];
-    stringIdx = curNote->stringIdx;
-    x = metrics->gameArea.x + (metrics->gameArea.w - metrics->note.w) / 2;
-    y = metrics->gameArea.y + curNote->relPos * metrics->gameArea.h;
-    renderTexture(textures->notes[stringIdx], renderer, x, y);*/
+
+    //******************************************************************************************************************
+    // Scores
+
+    renderTexture(textures->chiffres[model->pointTab[0]], renderer , 150, 800);
+    renderTexture(textures->chiffres[model->pointTab[1]], renderer , 220, 800);
+    renderTexture(textures->chiffres[model->pointTab[2]], renderer , 290, 800);
+    renderTexture(textures->chiffres[model->pointTab[3]], renderer , 360, 800);
+    renderTexture(textures->chiffres[model->pointTab[4]], renderer , 430, 800);
+    renderTexture(textures->chiffres[model->pointTab[5]], renderer , 500, 800);
+    renderTexture(textures->chiffres[model->pointTab[6]], renderer , 570, 800);
+
 
     //******************************************************************************************************************
     // Mise � jour de l'affichage

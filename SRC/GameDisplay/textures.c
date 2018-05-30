@@ -60,8 +60,8 @@ Textures * newTextures(SDL_Renderer *renderer)
     for (int i = 0; i<MAX_COMBO; i++)
       {
         sprintf(posToWrite, "number_%d.bmp", i);
-        textures->comboVal[i] = loadTexture(imgPath, renderer);
-        if (textures->comboVal[i] == NULL) goto ERROR_LABEL;
+        textures->chiffres[i] = loadTexture(imgPath, renderer);
+        if (textures->chiffres[i] == NULL) goto ERROR_LABEL;
       }
 
 
