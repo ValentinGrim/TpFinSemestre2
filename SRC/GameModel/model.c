@@ -118,8 +118,6 @@ void updateGameSheet(GameSheet *sheet, Timer *timer)
 void checkStrum(Model *model)
 {
     // TODO : Gérer les actions du joueur et modifier l'état des notes
-    model->xXcOmbOXx = 1;
-
 
     int nbNotes=*(model->gameSheet->nbNotes),i;
     GameNote *notes;
