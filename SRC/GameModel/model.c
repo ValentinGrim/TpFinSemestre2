@@ -119,6 +119,44 @@ void checkStrum(Model *model)
 {
     // TODO : Gérer les actions du joueur et modifier l'état des notes
 
+    if(model->xXcOmbOXx < 10)
+    {
+
+      model->cOmbOMult = 1;
+
+    }
+
+    if(model->xXcOmbOXx >= 10 && model->xXcOmbOXx < 20)
+    {
+
+      model->cOmbOMult = 2;
+
+    }
+    if(model->xXcOmbOXx >= 20 && model->xXcOmbOXx < 30)
+    {
+
+      model->cOmbOMult = 3;
+
+    }
+    if(model->xXcOmbOXx >= 30 && model->xXcOmbOXx < 40)
+    {
+
+      model->cOmbOMult = 4;
+
+    }
+    if(model->xXcOmbOXx >= 40 && model->xXcOmbOXx < 100)
+    {
+
+      model->cOmbOMult = 5;
+
+    }
+    if(model->xXcOmbOXx >= 100)
+    {
+
+      model->cOmbOMult = 10;
+
+    }
+    
     int nbNotes=*(model->gameSheet->nbNotes),i;
     GameNote *notes;
 
@@ -139,44 +177,6 @@ void checkStrum(Model *model)
 
           model->xXcOmbOXx++;
           model->life ++;
-
-          if(model->xXcOmbOXx < 10)
-          {
-
-            model->cOmbOMult = 1;
-
-          }
-
-          if(model->xXcOmbOXx >= 10 && model->xXcOmbOXx < 20)
-          {
-
-            model->cOmbOMult = 2;
-
-          }
-          if(model->xXcOmbOXx >= 20 && model->xXcOmbOXx < 30)
-          {
-
-            model->cOmbOMult = 3;
-
-          }
-          if(model->xXcOmbOXx >= 30 && model->xXcOmbOXx < 40)
-          {
-
-            model->cOmbOMult = 4;
-
-          }
-          if(model->xXcOmbOXx >= 40 && model->xXcOmbOXx < 100)
-          {
-
-            model->cOmbOMult = 5;
-
-          }
-          if(model->xXcOmbOXx >= 100)
-          {
-
-            model->cOmbOMult = 10;
-
-          }
 
      			notes[i].state=statePlayed;
      			notes[i].visible=0;
