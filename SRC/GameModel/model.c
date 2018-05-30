@@ -138,6 +138,7 @@ void checkStrum(Model *model)
      		{
 
           model->xXcOmbOXx++;
+          model->life ++;
 
           if(model->xXcOmbOXx < 10)
           {
@@ -187,13 +188,37 @@ void checkStrum(Model *model)
         {
 
           model->xXcOmbOXx = 0;
+          model->life--;
           model->points-= 20;
           printf("Note %d raté, points : %d\n", i+1, model->points);
 
         }
      	}
+
+      TabPoints(model);
      }
 
+
+}
+
+void TabPoints(Model *model)
+{
+
+  int points = model->points;
+  int TabTemp[7];
+
+  for(int i = 0; i < 7; i++)
+  {
+
+    int tmp = points % 10;
+    points /= 10;
+    TabTemp[i] = tmp;
+    model->pointTab[6-i] = TabTemp[i];
+    printf("%d ", model->pointTab[i]);
+
+
+  }
+  printf("\n");
 
 }
 
@@ -210,6 +235,16 @@ Model * newModel(SheetMusic * sheet, float relSpeed)
     model->gameSheet = newGameSheet(sheet);
     model->timer = newTimer(relSpeed);
     model->points = 0.0f;
+    model->cOmbOMult = 1;
+    model->life = 5;
+    model->xXcOmbOXx = 0;
+
+    for(int i = 0; i < 7; i++)
+    {
+
+      model->pointTab[i] = 0;
+
+    }
 
     return model;
 }
