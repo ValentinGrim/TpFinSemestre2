@@ -57,6 +57,13 @@ Textures * newTextures(SDL_Renderer *renderer)
     textures->combo = loadTexture(imgPath, renderer);
     if (textures->combo == NULL) goto ERROR_LABEL;
 
+    for (int i = 0; i<MAX_COMBO; i++)
+      {
+        sprintf(posToWrite, "number_%d.bmp", i);
+        textures->comboVal[i] = loadTexture(imgPath, renderer);
+        if (textures->comboVal[i] == NULL) goto ERROR_LABEL;
+      }
+
 
     // Chargement du fond de la zone de jeu
     sprintf(posToWrite, "game_area.png");

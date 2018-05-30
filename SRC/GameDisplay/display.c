@@ -112,9 +112,50 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     //******************************************************************************************************************
     // Fond de la combo
 
-    x = 0;
-    y = 0;
+    x = 100;
+    y = 100;
     renderTexture(textures->combo, renderer, x, y);
+
+    switch (model->cOmbOMult)
+    {
+      case 1:
+        x = 300;
+        y = 150;
+        renderTexture(textures->comboVal[1], renderer, x, y);
+        break;
+
+      case 2:
+        x = 300;
+        y = 150;
+        renderTexture(textures->comboVal[2], renderer, x, y);
+        break;
+
+      case 3:
+        x = 300;
+        y = 150;
+        renderTexture(textures->comboVal[3], renderer, x, y);
+        break;
+
+      case 4:
+        x = 300;
+        y = 150;
+        renderTexture(textures->comboVal[4], renderer, x, y);
+        break;
+
+      case 5:
+        x = 300;
+        y = 150;
+        renderTexture(textures->comboVal[5], renderer, x, y);
+        break;
+
+      case 10:
+        x = 300;
+        y = 150;
+        renderTexture(textures->comboVal[1], renderer, x, y);
+        renderTexture(textures->comboVal[0], renderer, x+50, y);
+        break;
+
+    }
 
 
     //******************************************************************************************************************
