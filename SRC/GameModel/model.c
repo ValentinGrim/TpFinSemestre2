@@ -180,21 +180,26 @@ void checkStrum(Model *model)
 
      			notes[i].state=statePlayed;
      			notes[i].visible=0;
+          if(model->cheatMode == 0)
+          {
+              model->keys->fretDown[string] = 1;
+          }
+
      			model->points+=(100 * model->cOmbOMult);
-     			printf("points:%d  %d\n",(i+1)*100, model->points);
-          printf("%d et %d\n", model->xXcOmbOXx, model->cOmbOMult);
      		}
         if(notes[i].playingTime+0.09 < model->timer->currentTime && notes[i].state == stateAlive)
         {
 
           model->xXcOmbOXx = 0;
           model->life--;
-          model->points-= 20;
-          printf("Note %d raté, points : %d\n", i+1, model->points);
+          if(model->points > 10)
+          {
 
+            model->points-= 10;
+
+          }
         }
      	}
-
       TabPoints(model);
      }
 
@@ -261,6 +266,7 @@ Model * newModel(SheetMusic * sheet, float relSpeed, char * arg)
     model->cOmbOMult = 1;
     model->life = 5;
     model->xXcOmbOXx = 0;
+    model->cheatMode = 1;
 
     FILE *pFichier = NULL;
     char * PointerSurArgu = model->nomfichier;

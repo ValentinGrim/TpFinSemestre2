@@ -174,7 +174,7 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     // Scores
     for(int i = 0; i < 7; i++)
     {
-        renderTexture(textures->chiffres[model->pointTab[i]], renderer , (70*i), metrics->screen.h-70);
+        renderTexture(textures->score[model->pointTab[i]], renderer , (70*i), metrics->screen.h-70);
     }
 
     //******************************************************************************************************************
@@ -191,17 +191,17 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     for(int i = 0; i < 7; i++)
     {
         x = metrics->screen.w - (70*(7-i));
-        renderTexture(textures->chiffres[model->highScoresTab[0][i]], renderer , x , (0));
+        renderTexture(textures->score[model->highScoresTab[0][i]], renderer , x , (0));
     }
     for(int i = 0; i < 7; i++)
     {
         x = metrics->screen.w - (70*(7-i));
-        renderTexture(textures->chiffres[model->highScoresTab[1][i]], renderer , x , (80));
+        renderTexture(textures->score[model->highScoresTab[1][i]], renderer , x , (80));
     }
     for(int i = 0; i < 7; i++)
     {
         x = metrics->screen.w - (70*(7-i));
-        renderTexture(textures->chiffres[model->highScoresTab[2][i]], renderer , x , (160));
+        renderTexture(textures->score[model->highScoresTab[2][i]], renderer , x , (160));
     }
 
 
