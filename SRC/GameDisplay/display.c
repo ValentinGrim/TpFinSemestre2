@@ -78,9 +78,9 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     //******************************************************************************************************************
     // Fond de la guitare
 
-    x = metrics->gameArea.x;
+    /*x = metrics->gameArea.x;
     y = metrics->gameArea.y;
-    renderTexture(textures->gameArea, renderer, x, y);
+    renderTexture(textures->gameArea, renderer, x, y);*/
 
     //******************************************************************************************************************
     // COOOOOOOOOORDES
@@ -172,15 +172,22 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
 
     //******************************************************************************************************************
     // Scores
+    for(int i = 0; i < 7; i++)
+    {
+        renderTexture(textures->chiffres[model->pointTab[i]], renderer , (70*i), metrics->screen.h-70);
+    }
 
-    renderTexture(textures->chiffres[model->pointTab[0]], renderer , 0, metrics->screen.h-70);
-    renderTexture(textures->chiffres[model->pointTab[1]], renderer , 70, metrics->screen.h-70);
-    renderTexture(textures->chiffres[model->pointTab[2]], renderer , 140, metrics->screen.h-70);
-    renderTexture(textures->chiffres[model->pointTab[3]], renderer , 210, metrics->screen.h-70);
-    renderTexture(textures->chiffres[model->pointTab[4]], renderer , 280, metrics->screen.h-70);
-    renderTexture(textures->chiffres[model->pointTab[5]], renderer , 350, metrics->screen.h-70);
-    renderTexture(textures->chiffres[model->pointTab[6]], renderer , 420, metrics->screen.h-70);
+    //******************************************************************************************************************
+    //highscores
+    for (int j; j<3; j++)
+    {
 
+      for(int i = 0; i < 7; i++)
+      {
+          renderTexture(textures->chiffres[model->highScoresTab[j][i]], renderer , 1430+(70*i), (100*j));
+      }
+
+    }
 
     //******************************************************************************************************************
     // Mise � jour de l'affichage

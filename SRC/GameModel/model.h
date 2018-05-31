@@ -68,12 +68,14 @@ typedef struct Model_s
     int pointTab[7];
     int cOmbOMult;
     int highScores[3];
+    int highScoresTab[3][7];
     int xXcOmbOXx;
     int life;
     char nomfichier[1024];
 } Model;
 
 void TabPoints(Model *model);
+void TabHighscores(Model *model);
 
 Model * newModel(SheetMusic * sheet, float relSpeed, char * arg);
 void freeModel(Model * model);
