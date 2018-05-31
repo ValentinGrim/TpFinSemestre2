@@ -47,6 +47,7 @@ Textures * newTextures(SDL_Renderer *renderer)
 
     }
 
+
     // Chargement du fond
     sprintf(posToWrite, "background.png");
     textures->background = loadTexture(imgPath, renderer);
@@ -59,11 +60,11 @@ Textures * newTextures(SDL_Renderer *renderer)
 
     for (int i = 0; i<MAX_COMBO; i++)
       {
-        sprintf(posToWrite, "number_%d.bmp", i);
+        sprintf(posToWrite, "default-%d.png", i);
         textures->chiffres[i] = loadTexture(imgPath, renderer);
         if (textures->chiffres[i] == NULL) goto ERROR_LABEL;
 
-        sprintf(posToWrite, "default-%d.png", i);
+        sprintf(posToWrite, "score-%d.png", i);
         textures->score[i] = loadTexture(imgPath, renderer);
         if (textures->score[i] == NULL) goto ERROR_LABEL;
       }
@@ -74,11 +75,17 @@ Textures * newTextures(SDL_Renderer *renderer)
     textures->gameArea = loadTexture(imgPath, renderer);
     if (textures->gameArea == NULL) goto ERROR_LABEL;
 
+    //fond highScoresTab
+
     // Chargement du fond de la cordes
     sprintf(posToWrite, "string.png");
     textures->string = loadTexture(imgPath, renderer);
     if (textures->string == NULL) goto ERROR_LABEL;
 
+    // Chargement du highScores
+    sprintf(posToWrite, "backhighscores.png");
+    textures->backHighscores = loadTexture(imgPath, renderer);
+    if (textures->backHighscores == NULL) goto ERROR_LABEL;
 
     return textures;
 

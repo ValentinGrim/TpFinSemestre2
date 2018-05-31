@@ -22,6 +22,7 @@ typedef struct Textures_s
 		SDL_Texture *combo;
 		SDL_Texture *chiffres[MAX_COMBO];
 		SDL_Texture *score[MAX_COMBO];
+		SDL_Texture *backHighscores;
 } Textures;
 
 Textures * newTextures(SDL_Renderer *renderer);

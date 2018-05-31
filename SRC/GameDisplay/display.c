@@ -174,9 +174,14 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     // Scores
     for(int i = 0; i < 7; i++)
     {
-        renderTexture(textures->score[model->pointTab[i]], renderer , (70*i), metrics->screen.h-70);
+        renderTexture(textures->chiffres[model->pointTab[i]], renderer , (70*i), metrics->screen.h-70);
     }
 
+    //******************************************************************************************************************
+    // SCORES
+
+    x = metrics->screen.w - (240);
+    renderTexture(textures->backHighscores, renderer , x , (0));
     //******************************************************************************************************************
     //highscores
     /*for (int j; j<3; j++)
@@ -190,19 +195,22 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     //}
     for(int i = 0; i < 7; i++)
     {
-        x = metrics->screen.w - (70*(7-i));
+        x = metrics->screen.w - (30*(7-i));
         renderTexture(textures->score[model->highScoresTab[0][i]], renderer , x , (0));
     }
     for(int i = 0; i < 7; i++)
     {
-        x = metrics->screen.w - (70*(7-i));
-        renderTexture(textures->score[model->highScoresTab[1][i]], renderer , x , (80));
+        x = metrics->screen.w - (30*(7-i));
+        renderTexture(textures->score[model->highScoresTab[1][i]], renderer , x , (50));
     }
     for(int i = 0; i < 7; i++)
     {
-        x = metrics->screen.w - (70*(7-i));
-        renderTexture(textures->score[model->highScoresTab[2][i]], renderer , x , (160));
+        x = metrics->screen.w - (30*(7-i));
+        renderTexture(textures->score[model->highScoresTab[2][i]], renderer , x , (100));
     }
+    //******************************************************************************************************************
+    // SCORES
+
 
 
     //******************************************************************************************************************
