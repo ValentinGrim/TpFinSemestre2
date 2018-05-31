@@ -188,18 +188,20 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
       }*/
 
     //}
-
     for(int i = 0; i < 7; i++)
     {
-        renderTexture(textures->chiffres[model->highScoresTab[0][i]], renderer , (70*i), (100*0));
+        x = metrics->screen.w - (70*(7-i));
+        renderTexture(textures->chiffres[model->highScoresTab[0][i]], renderer , x , (0));
     }
     for(int i = 0; i < 7; i++)
     {
-        renderTexture(textures->chiffres[model->highScoresTab[1][i]], renderer , (70*i), (100*1));
+        x = metrics->screen.w - (70*(7-i));
+        renderTexture(textures->chiffres[model->highScoresTab[1][i]], renderer , x , (80));
     }
     for(int i = 0; i < 7; i++)
     {
-        renderTexture(textures->chiffres[model->highScoresTab[2][i]], renderer , (70*i), (100*2));
+        x = metrics->screen.w - (70*(7-i));
+        renderTexture(textures->chiffres[model->highScoresTab[2][i]], renderer , x , (160));
     }
 
 

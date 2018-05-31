@@ -110,22 +110,40 @@ int main(int argc, char** argv)
 
     //******************************************************************************************************************
     // Initialisation de la vue
-
-    initSDL();
-    mainWindow = newMainWindow();
-    if (!mainWindow)
+    int menu = 1;
+    if(menu == 0)
     {
-        printf("Erreur de creation de la fenetre\n");
-        return EXIT_FAILURE;
-    }
-    gameDisp = newGameDisplay(mainWindow);
-    if (!gameDisp)
-    {
-        printf("Erreur de creation de l'affichage\n");
-        return EXIT_FAILURE;
-    }
+      initSDL();
 
-    initMetrics(gameDisp->metrics, nbStrings);
+      SDL_Window* menuWindow = NULL;
+      menuWindow = newMainWindow();
+      if (!menuWindow)
+      {
+          printf("Erreur de creation de la fenetre\n");
+          return EXIT_FAILURE;
+      }
+
+      freeMainWindow(menuWindow);
+      quitSDL();
+    }
+    if(menu == 1)
+    {
+        initSDL();
+        mainWindow = newMainWindow();
+        if (!mainWindow)
+        {
+            printf("Erreur de creation de la fenetre\n");
+            return EXIT_FAILURE;
+        }
+        gameDisp = newGameDisplay(mainWindow);
+        if (!gameDisp)
+        {
+            printf("Erreur de creation de l'affichage\n");
+            return EXIT_FAILURE;
+        }
+
+        initMetrics(gameDisp->metrics, nbStrings);
+      }
     //******************************************************************************************************************
     // Initialisation du controller
 
