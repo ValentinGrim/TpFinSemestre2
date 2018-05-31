@@ -214,11 +214,8 @@ void TabPoints(Model *model)
     points /= 10;
     TabTemp[i] = tmp;
     model->pointTab[6-i] = TabTemp[i];
-    printf("%d ", model->pointTab[i]);
-
 
   }
-  printf("\n");
 
 }
 
@@ -230,7 +227,7 @@ void TabHighscores(Model *model)
 
   for (int j = 0; j < 3; j++)
   {
-    int points = model->highScore[j];
+    int points = model->highScores[j];
     for(int i = 0; i < 7; i++)
     {
 
@@ -294,6 +291,7 @@ Model * newModel(SheetMusic * sheet, float relSpeed, char * arg)
       model->pointTab[i] = 0;
 
     }
+    TabHighscores(model);
     fclose(pFichier);
     return model;
 }

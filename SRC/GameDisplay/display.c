@@ -179,15 +179,29 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
 
     //******************************************************************************************************************
     //highscores
-    for (int j; j<3; j++)
+    /*for (int j; j<3; j++)
     {
 
       for(int i = 0; i < 7; i++)
       {
-          renderTexture(textures->chiffres[model->highScoresTab[j][i]], renderer , 1430+(70*i), (100*j));
-      }
+          renderTexture(textures->chiffres[model->highScoresTab[j][i]], renderer , 0, (100*j));
+      }*/
 
+    //}
+
+    for(int i = 0; i < 7; i++)
+    {
+        renderTexture(textures->chiffres[model->highScoresTab[0][i]], renderer , (70*i), (100*0));
     }
+    for(int i = 0; i < 7; i++)
+    {
+        renderTexture(textures->chiffres[model->highScoresTab[1][i]], renderer , (70*i), (100*1));
+    }
+    for(int i = 0; i < 7; i++)
+    {
+        renderTexture(textures->chiffres[model->highScoresTab[2][i]], renderer , (70*i), (100*2));
+    }
+
 
     //******************************************************************************************************************
     // Mise � jour de l'affichage
