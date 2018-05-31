@@ -62,6 +62,10 @@ Textures * newTextures(SDL_Renderer *renderer)
         sprintf(posToWrite, "number_%d.bmp", i);
         textures->chiffres[i] = loadTexture(imgPath, renderer);
         if (textures->chiffres[i] == NULL) goto ERROR_LABEL;
+
+        sprintf(posToWrite, "default-%d.png", i);
+        textures->score[i] = loadTexture(imgPath, renderer);
+        if (textures->score[i] == NULL) goto ERROR_LABEL;
       }
 
 
