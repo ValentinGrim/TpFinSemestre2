@@ -121,8 +121,26 @@ int main(int argc, char** argv)
       }
 
       SDL_Window* pWindow = NULL;
+      SDL_Renderer * pRenderer = NULL;
       pWindow = SDL_CreateWindow("Tubbies Legend",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 0);
 
+      if (!pWindow)
+      {
+          printf("SDL_CreateWindow Error: %s\n", SDL_GetError());
+          exit(EXIT_FAILURE);
+      }
+
+      pRenderer = SDL_CreateRenderer(pWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
+      if (!pRenderer)
+      {
+          printf("SDL_CreateRenderer Error: %s\n", SDL_GetError());
+          exit(EXIT_FAILURE);
+      }
+
+      SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
+      SDL_RenderSetLogicalSize(pRenderer, WINDOW_WIDTH, WINDOW_HEIGHT);
+      SDL_SetRenderDrawColor(pRenderer, 0, 0, 0, 255);
 
       if( pWindow )
       {
