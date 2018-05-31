@@ -274,7 +274,7 @@ Model * newModel(SheetMusic * sheet, float relSpeed, char * arg)
     {
 
       pFichier = fopen(model->nomfichier, "w");
-      fprintf(pFichier,"1 - 0\n2 - 0\n3 - 0\n", arg);
+      fprintf(pFichier,"1 - 0\n2 - 0\n3 - 0\n");
 
     }
 
