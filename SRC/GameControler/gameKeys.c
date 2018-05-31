@@ -61,7 +61,7 @@ void freeGameKeys(GameKeys * gameKeys)
     free(gameKeys);
 }
 
-void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys)
+void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys, char * nomfichier, int *  highScores, int * points)
 {
     SDL_Event evt;
     SDL_Scancode scanCode;
@@ -105,6 +105,28 @@ void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys)
             // Touche retour vers le menu
             if ( scanCode == config->exitValue )
             {
+								FILE * pFichier = NULL;
+								pFichier = fopen(nomfichier, "w");
+
+								for(int i = 0; i < 3; i++)
+								{
+									if(highScores[i] < points)
+									{
+										if(i + 1 < 3)
+										{
+											if(i + 2 < 3)
+											{
+												highScores[i+2] = highScores[i+1];
+											}
+											highScores[i+1] = highScores[i];
+										}
+										highScores[i] = points;
+										i = 3;
+									}
+								}
+								fprintf(pFichier,"1 - %d\n", highScores[0]);
+								fprintf(pFichier,"2 - %d\n", highScores[1]);
+								fprintf(pFichier,"3 - %d\n", highScores[2]);
                 gameKeys->exitDown = 1;
             }
             break;
@@ -121,7 +143,7 @@ void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys)
 								gameKeys->fretDown[i] = 0;
 
 							}
-            
+
         	}
     	}
 		}

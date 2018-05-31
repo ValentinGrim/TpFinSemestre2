@@ -222,30 +222,10 @@ void TabPoints(Model *model)
 
 }
 
-Model * newModel(SheetMusic * sheet, float relSpeed)
+Model * newModel(SheetMusic * sheet, float relSpeed, char * arg)
 {
 
     Model * model = NULL;
-
-    FILE *pFichier = NULL;
-    pFichier = fopen("scores.txt", "r");
-    if(!pFichier)
-    {
-
-      pFichier = fopen("scores.txt", "w");
-      fprintf(pFichier, "1 - 0\n2 - 0\n3 - 0");
-      model->highScores[0] = 0;
-      model->highScores[1] = 0;
-      model->highScores[2] = 0;
-
-    }
-
-    else
-    {
-
-      fscanf(pFichier,"1 - %d\n2 - %d\n3 - %d\n", &model->highScores[0],&model->highScores[1],&model->highScores[2]);
-
-    }
 
     if (!sheet)
         return NULL;
@@ -259,6 +239,29 @@ Model * newModel(SheetMusic * sheet, float relSpeed)
     model->cOmbOMult = 1;
     model->life = 5;
     model->xXcOmbOXx = 0;
+
+    FILE *pFichier = NULL;
+    char * PointerSurArgu = model->nomfichier;
+    memmove(arg, arg+8, strlen(arg));
+    sprintf(PointerSurArgu, "scores_%s.txt", arg);
+    pFichier = fopen(model->nomfichier, "r");
+    if(!pFichier)
+    {
+
+      pFichier = fopen(model->nomfichier, "w");
+      fprintf(pFichier,"1 - 0\n2 - 0\n3 - 0\n", arg);
+
+    }
+
+    else
+    {
+
+
+      fscanf(pFichier,"1 - %d\n", &model->highScores[0]);
+      fscanf(pFichier,"2 - %d\n", &model->highScores[1]);
+      fscanf(pFichier,"3 - %d", &model->highScores[2]);
+
+    }
 
     for(int i = 0; i < 7; i++)
     {
