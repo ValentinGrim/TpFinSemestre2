@@ -110,40 +110,52 @@ int main(int argc, char** argv)
 
     //******************************************************************************************************************
     // Initialisation de la vue
-    int menu = 1;
-    if(menu == 0)
-    {
-      initSDL();
+    int menu = 0;
 
-      SDL_Window* menuWindow = NULL;
-      menuWindow = newMainWindow();
-      if (!menuWindow)
+    while (menu == 0)
+    {
+      if (SDL_Init(SDL_INIT_VIDEO) != 0 )
       {
-          printf("Erreur de creation de la fenetre\n");
-          return EXIT_FAILURE;
+          fprintf(stdout,"Échec de l'initialisation de la SDL (%s)\n",SDL_GetError());
+          return -1;
       }
 
-      freeMainWindow(menuWindow);
-      quitSDL();
+      SDL_Window* pWindow = NULL;
+      pWindow = SDL_CreateWindow("Tubbies Legend",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 0);
+
+
+      if( pWindow )
+      {
+          SDL_Delay(3000); /* Attendre trois secondes, que l'utilisateur voie la fenêtre */
+
+          SDL_DestroyWindow(pWindow);
+      }
+      else
+      {
+          fprintf(stderr,"Erreur de création de la fenêtre: %s\n",SDL_GetError());
+      }
+
+      SDL_Quit();
+      menu = 1;
+
     }
-    if(menu == 1)
-    {
-        initSDL();
-        mainWindow = newMainWindow();
-        if (!mainWindow)
-        {
-            printf("Erreur de creation de la fenetre\n");
-            return EXIT_FAILURE;
-        }
-        gameDisp = newGameDisplay(mainWindow);
-        if (!gameDisp)
-        {
-            printf("Erreur de creation de l'affichage\n");
-            return EXIT_FAILURE;
-        }
 
-        initMetrics(gameDisp->metrics, nbStrings);
-      }
+    initSDL();
+    mainWindow = newMainWindow();
+    if (!mainWindow)
+    {
+        printf("Erreur de creation de la fenetre\n");
+        return EXIT_FAILURE;
+    }
+    gameDisp = newGameDisplay(mainWindow);
+    if (!gameDisp)
+    {
+        printf("Erreur de creation de l'affichage\n");
+        return EXIT_FAILURE;
+    }
+
+    initMetrics(gameDisp->metrics, nbStrings);
+
     //******************************************************************************************************************
     // Initialisation du controller
 
