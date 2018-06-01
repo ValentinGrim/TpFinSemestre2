@@ -172,44 +172,17 @@ void checkStrum(Model *model)
      	{
      		string=notes[i].stringIdx;
 
-<<<<<<< HEAD
      		if((notes[i].playingTime <= model->timer->currentTime+0.09) &&(notes[i].playingTime >= model->timer->currentTime-0.09) && (model->keys->fretDown[string]==1))
      		{
-=======
-            if(model->cheatMode == 0)
-            {
-                model->keys->fretDown[string] = 1;
-            }
->>>>>>> 1a6d1384933ca8c81d0776b003ab3598d94ba94e
 
           model->xXcOmbOXx++;
           model->life ++;
 
-<<<<<<< HEAD
      			notes[i].state=statePlayed;
      			notes[i].visible=0;
           if(model->cheatMode == 0)
           {
               model->keys->fretDown[string] = 1;
-=======
-        else
-        {
-          if((notes[i].playingTime <= model->timer->currentTime+0.09) &&(notes[i].playingTime >= model->timer->currentTime-0.09) && (model->keys->fretDown[string]==1) && ((model->keys->strumDown ==1)||(model->keys->strumDown == 2)))
-          {
-
-            model->xXcOmbOXx++;
-            model->life ++;
-
-            notes[i].state=statePlayed;
-            notes[i].visible=0;
-
-            if(model->cheatMode == 0)
-            {
-                model->keys->fretDown[string] = 1;
-            }
-
-            model->points+=(100 * model->cOmbOMult);
->>>>>>> 1a6d1384933ca8c81d0776b003ab3598d94ba94e
           }
 
      			model->points+=(100 * model->cOmbOMult);
