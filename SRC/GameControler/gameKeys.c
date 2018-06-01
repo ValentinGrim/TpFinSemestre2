@@ -1,4 +1,3 @@
-//test de mon githpcfixe
 #ifdef _WIN32
 #include <SDL.h>
 #else
