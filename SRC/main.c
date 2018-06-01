@@ -73,6 +73,7 @@ int main(int argc, char** argv)
         return EXIT_FAILURE;
     }
     nbStrings = atoi(argv[2]);
+    pianoMode = atoi(argv[3]);
     staffIdx = (argc > 3) ? atoi(argv[3]) : 0;
 
     //******************************************************************************************************************

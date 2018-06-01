@@ -71,12 +71,6 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     //******************************************************************************************************************
     // Remise � z�ro de l'affichage
 
-    if(model->menu == 0)
-    {
-      renderTexture(textures->screenMenu, renderer, x, y);
-    }
-    if(model->menu == 1)
-    {
         //******************************************************************************************************************
         // Fond d'écran
 
@@ -218,7 +212,7 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
             renderTexture(textures->score[model->highScoresTab[2][i]], renderer , x , (100));
         }
 
-  }
+  
     //******************************************************************************************************************
     // SCORES
 

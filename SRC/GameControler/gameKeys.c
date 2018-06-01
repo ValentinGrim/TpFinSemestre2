@@ -129,6 +129,10 @@ void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys, char * nomfi
 								fprintf(pFichier,"3 - %d\n", highScores[2]);
                 gameKeys->exitDown = 1;
             }
+						if (scanCode == config->strumValue)
+						{
+							gameKeys->strumDown = 1;
+						}
             break;
 
         case SDL_KEYUP: //...................................................................... Une touche est relach�e
@@ -143,8 +147,11 @@ void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys, char * nomfi
 								gameKeys->fretDown[i] = 0;
 
 							}
-
-        	}
+        		}
+						if (scanCode == config->strumValue)
+						{
+							gameKeys->strumDown = 1;
+						}
     	}
 		}
 }

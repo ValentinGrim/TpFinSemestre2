@@ -28,6 +28,7 @@ typedef struct GameKeys_s
     int strumDown;
     int fretDown[MAX_STRINGS];
     int quitDown;  // On ferme fenetre
+    int pianoMode;
 } GameKeys;
 
 GameKeys * newGameKeys();
