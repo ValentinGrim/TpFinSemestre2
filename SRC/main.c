@@ -110,8 +110,6 @@ int main(int argc, char** argv)
 
     //******************************************************************************************************************
     // Initialisation de la vue
-<<<<<<< HEAD
-=======
     int menu = 0;
 
     while (menu == 0)
@@ -123,29 +121,12 @@ int main(int argc, char** argv)
       }
 
       SDL_Window* pWindow = NULL;
-      SDL_Renderer * pRenderer = NULL;
       pWindow = SDL_CreateWindow("Tubbies Legend",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 0);
 
-      if (!pWindow)
-      {
-          printf("SDL_CreateWindow Error: %s\n", SDL_GetError());
-          exit(EXIT_FAILURE);
-      }
-
-      pRenderer = SDL_CreateRenderer(pWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-
-      if (!pRenderer)
-      {
-          printf("SDL_CreateRenderer Error: %s\n", SDL_GetError());
-          exit(EXIT_FAILURE);
-      }
-
-      SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
-      SDL_RenderSetLogicalSize(pRenderer, WINDOW_WIDTH, WINDOW_HEIGHT);
-      SDL_SetRenderDrawColor(pRenderer, 0, 0, 0, 255);
 
       if( pWindow )
       {
+
           SDL_Delay(3000); /* Attendre trois secondes, que l'utilisateur voie la fenêtre */
 
           SDL_DestroyWindow(pWindow);
@@ -159,7 +140,6 @@ int main(int argc, char** argv)
       menu = 1;
 
     }
->>>>>>> d41aded47266a887694221e4102571ffea15b8e5
 
     initSDL();
     mainWindow = newMainWindow();
@@ -174,6 +154,7 @@ int main(int argc, char** argv)
         printf("Erreur de creation de l'affichage\n");
         return EXIT_FAILURE;
     }
+
     initMetrics(gameDisp->metrics, nbStrings);
 
     //******************************************************************************************************************
@@ -215,33 +196,31 @@ int main(int argc, char** argv)
     // Lancement du timer
     startTimer(model->timer);
 
-   	model->Menu = 0;
-    model->keys->Startgame = 0;
-    model->choixMenu = 0;
-    while (model->Menu != -1)     // Menu == -1   =>   quitter le jeu
+    while (!(model->keys->quitDown || model->keys->exitDown))
     {
-        if(model->Menu != 1)
-            model->keys->Startgame = 0;
-        // Mise à jour du controller
-        processGameEvents(config, model->keys);
-        if(model->keys->Startgame > 1)
-            model->choixMenu = model->keys->Startgame - 2;
-        // Mise à jour du modèle
+        // Mise � jour du controller
+        processGameEvents(config, model->keys, model->nomfichier, model->highScores, model->points);
+
+        // Mise � jour du mod�le
         updateModel(model);
 
-
-        // Mise à jour de la vue
+        // Mise � jour de la vue
         updateGameDisplay(gameDisp, mainWindow, model);
-        if(model->keys->Startgame == 1)
-            model->Menu = 1;
-        if(model->keys->quitDown || model->keys->exitDown)
+
+      }
+
+    while(!(model->keys->quitDown || model->keys->exitDown))
+    {
+        if( menu== 0 )
         {
-            if(model->Menu == 0) //le Menu est ouvert
-                model->Menu = -1; // on ferme la fenètre
-            else if(model->Menu == 1) // on est dans le jeu
-                model->Menu = 0;  // on retourne au Menu
+          menu = -1;
         }
-    }
+
+        else if (menu =1)
+        {
+          menu = 0;
+        }
+      }
 
     //******************************************************************************************************************
     // Lib�ration de la m�moire

@@ -75,7 +75,7 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     {
       renderTexture(textures->screenMenu, renderer, x, y);
     }
-    else if(model->menu == 1)
+    if(model->menu == 1)
     {
         //******************************************************************************************************************
         // Fond d'écran
