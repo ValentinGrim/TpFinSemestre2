@@ -73,6 +73,7 @@ typedef struct Model_s
     int life;
     char nomfichier[1024];
     int cheatMode;
+    int pMode;
 } Model;
 
 void TabPoints(Model *model);

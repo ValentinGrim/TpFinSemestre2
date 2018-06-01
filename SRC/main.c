@@ -73,7 +73,8 @@ int main(int argc, char** argv)
         return EXIT_FAILURE;
     }
     nbStrings = atoi(argv[2]);
-    staffIdx = (argc > 3) ? atoi(argv[3]) : 0;
+    pianoMode = atoi(argv[3]);
+    staffIdx = (argc > 4) ? atoi(argv[4]) : 0;
 
     //******************************************************************************************************************
     // Traitement du midi et de la partition
@@ -105,7 +106,7 @@ int main(int argc, char** argv)
         return EXIT_FAILURE;
     }
     freeSheetMusic(sheet);
-
+    model->pMode = pianoMode;
     model->gameSheet->staffIdx = staffIdx;
 
     //******************************************************************************************************************

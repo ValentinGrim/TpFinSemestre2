@@ -21,7 +21,7 @@ SDLGameConfig * newGameConfig(int pianoMode)
 
     config->pianoMode = pianoMode;
 
-    if (pianoMode)
+    if (pianoMode==1)
     {
         config->fretValues[0] = SDL_SCANCODE_Q;
         config->fretValues[1] = SDL_SCANCODE_W;
