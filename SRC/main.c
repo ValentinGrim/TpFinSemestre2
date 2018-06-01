@@ -115,46 +115,44 @@ int main(int argc, char** argv)
 
     while (menu == 0)
     {
+
+      SDL_Window * pWindow = NULL;
+
+
       if (SDL_Init(SDL_INIT_VIDEO) != 0 )
       {
           fprintf(stdout,"Échec de l'initialisation de la SDL (%s)\n",SDL_GetError());
           return -1;
       }
 
-      SDL_Window* pWindow = NULL;
-      SDL_Renderer * pRenderer = NULL;
-      pWindow = SDL_CreateWindow("Tubbies Legend",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 0);
-
-      if (!pWindow)
+      pWindow = SDL_CreateWindow("Midi Tubbies",SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,350,230, SDL_WINDOW_SHOWN);
+      if(pWindow)
       {
-          printf("SDL_CreateWindow Error: %s\n", SDL_GetError());
-          exit(EXIT_FAILURE);
-      }
+        SDL_Surface * logo = NULL;
+        logo = SDL_LoadBMP("../Images/Logo.bmp");
+        if(!logo)
+        {
 
-      pRenderer = SDL_CreateRenderer(pWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+          fprintf(stderr,"Erreur lors du chargement du logo: %s\n", SDL_GetError());
 
-      if (!pRenderer)
-      {
-          printf("SDL_CreateRenderer Error: %s\n", SDL_GetError());
-          exit(EXIT_FAILURE);
-      }
+        }
 
-      SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
-      SDL_RenderSetLogicalSize(pRenderer, WINDOW_WIDTH, WINDOW_HEIGHT);
-      SDL_SetRenderDrawColor(pRenderer, 0, 0, 0, 255);
+        SDL_Rect pLogo = {0,0,350,230};
+        SDL_BlitSurface(logo,NULL,SDL_GetWindowSurface(pWindow),&pLogo);
+        SDL_UpdateWindowSurface(pWindow);
+        SDL_Delay(2000);
+        SDL_FreeSurface(logo);
+        SDL_DestroyWindow(pWindow);
 
-      if( pWindow )
-      {
-          SDL_Delay(3000); /* Attendre trois secondes, que l'utilisateur voie la fenêtre */
-
-          SDL_DestroyWindow(pWindow);
       }
       else
       {
-          fprintf(stderr,"Erreur de création de la fenêtre: %s\n",SDL_GetError());
-      }
 
+        fprintf(stderr,"Erreur lors de la création de la fenêtre: %s\n", SDL_GetError());
+
+      }
       SDL_Quit();
+
       menu = 1;
 
     }
