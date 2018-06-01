@@ -110,6 +110,56 @@ int main(int argc, char** argv)
 
     //******************************************************************************************************************
     // Initialisation de la vue
+<<<<<<< HEAD
+=======
+    int menu = 0;
+
+    while (menu == 0)
+    {
+      if (SDL_Init(SDL_INIT_VIDEO) != 0 )
+      {
+          fprintf(stdout,"Échec de l'initialisation de la SDL (%s)\n",SDL_GetError());
+          return -1;
+      }
+
+      SDL_Window* pWindow = NULL;
+      SDL_Renderer * pRenderer = NULL;
+      pWindow = SDL_CreateWindow("Tubbies Legend",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 0);
+
+      if (!pWindow)
+      {
+          printf("SDL_CreateWindow Error: %s\n", SDL_GetError());
+          exit(EXIT_FAILURE);
+      }
+
+      pRenderer = SDL_CreateRenderer(pWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
+      if (!pRenderer)
+      {
+          printf("SDL_CreateRenderer Error: %s\n", SDL_GetError());
+          exit(EXIT_FAILURE);
+      }
+
+      SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
+      SDL_RenderSetLogicalSize(pRenderer, WINDOW_WIDTH, WINDOW_HEIGHT);
+      SDL_SetRenderDrawColor(pRenderer, 0, 0, 0, 255);
+
+      if( pWindow )
+      {
+          SDL_Delay(3000); /* Attendre trois secondes, que l'utilisateur voie la fenêtre */
+
+          SDL_DestroyWindow(pWindow);
+      }
+      else
+      {
+          fprintf(stderr,"Erreur de création de la fenêtre: %s\n",SDL_GetError());
+      }
+
+      SDL_Quit();
+      menu = 1;
+
+    }
+>>>>>>> d41aded47266a887694221e4102571ffea15b8e5
 
     initSDL();
     mainWindow = newMainWindow();
