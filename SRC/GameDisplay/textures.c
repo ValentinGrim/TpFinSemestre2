@@ -41,6 +41,7 @@ Textures * newTextures(SDL_Renderer *renderer)
         textures->strum[i] = loadTexture(imgPath, renderer);
         if (textures->strum[i] == NULL) goto ERROR_LABEL;
 
+        // Chargement de la strumshelds
         sprintf(posToWrite, "strum_%d_held.png", i + 1);
         textures->strum_held[i] = loadTexture(imgPath, renderer);
         if (textures->strum_held[i] == NULL) goto ERROR_LABEL;
@@ -53,9 +54,6 @@ Textures * newTextures(SDL_Renderer *renderer)
     textures->background = loadTexture(imgPath, renderer);
     if (textures->background == NULL) goto ERROR_LABEL;
 
-    sprintf(posToWrite, "Logo.png");
-    textures->logo = loadTexture(imgPath, renderer);
-    if (textures->logo == NULL) goto ERROR_LABEL;
 
     // Chargement du combo
     sprintf(posToWrite, "combo.png");
@@ -64,10 +62,12 @@ Textures * newTextures(SDL_Renderer *renderer)
 
     for (int i = 0; i<MAX_COMBO; i++)
       {
+        // Chargement des images des chiffres du score
         sprintf(posToWrite, "default-%d.png", i);
         textures->chiffres[i] = loadTexture(imgPath, renderer);
         if (textures->chiffres[i] == NULL) goto ERROR_LABEL;
 
+        // Chargement des images des chiffres des highscores
         sprintf(posToWrite, "score-%d.png", i);
         textures->score[i] = loadTexture(imgPath, renderer);
         if (textures->score[i] == NULL) goto ERROR_LABEL;
@@ -86,7 +86,7 @@ Textures * newTextures(SDL_Renderer *renderer)
     textures->string = loadTexture(imgPath, renderer);
     if (textures->string == NULL) goto ERROR_LABEL;
 
-    // Chargement du highScores
+    // Chargement de l arriere plan des highScores
     sprintf(posToWrite, "backhighscores.png");
     textures->backHighscores = loadTexture(imgPath, renderer);
     if (textures->backHighscores == NULL) goto ERROR_LABEL;

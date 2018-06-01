@@ -16,9 +16,9 @@ typedef struct Metrics_s
     SDL_Rect screen;
     SDL_Rect note;
     SDL_Rect gameArea;
-    SDL_Rect *string;
-    SDL_Rect *strum;
-    SDL_Rect *strum_held;
+    SDL_Rect *string; //tableau des positons des cordes
+    SDL_Rect *strum; //tableau des positions des strums
+    SDL_Rect *strum_held; //tableau des positions des strumhelds
 } Metrics;
 
 

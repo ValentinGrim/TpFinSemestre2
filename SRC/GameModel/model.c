@@ -86,8 +86,9 @@ void updateGameSheet(GameSheet *sheet, Timer *timer)
     notes = sheet->notes[staffIdx];
 
     // TODO : Faire descendre les notes
-    // Voici une d�mo
 
+
+    //boucle pour faire descendre les notes
     for(i = 0; i < sheet->nbNotes[staffIdx]; i++)
     {
       float fallTime = notes[i].playingTime - timer->timeBeforeStrum;
@@ -112,7 +113,7 @@ void updateGameSheet(GameSheet *sheet, Timer *timer)
 void checkStrum(Model *model)
 {
     // TODO : Gérer les actions du joueur et modifier l'état des notes
-
+    //
     if(model->xXcOmbOXx < 10)
     {
 

@@ -25,8 +25,8 @@ void freeGameConfig(SDLGameConfig * config);
 typedef struct GameKeys_s
 {
     int exitDown;  // On retourne au menu
-    int strumDown;
-    int fretDown[MAX_STRINGS];
+    int strumDown; //variable touche entrée activée
+    int fretDown[MAX_STRINGS]; //tableau touche cordes
     int quitDown;  // On ferme fenetre
 } GameKeys;
 

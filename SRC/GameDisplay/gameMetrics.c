@@ -1,7 +1,7 @@
 #ifdef _WIN32
-	#include <SDL.h>
+#include <SDL.h>
 #else
-	#include <SDL2/SDL.h>
+#include <SDL2/SDL.h>
 #endif
 
 #include <stdio.h>
@@ -56,12 +56,15 @@ void initMetrics(Metrics * metrics, int nbStrings)
     // TODO : calculer les positions des �l�ments en fonction du nombre de cordes
 		metrics->string = calloc(nbStrings, sizeof(SDL_Rect));
 		metrics->strum = calloc(nbStrings, sizeof(SDL_Rect));
+
 		int i;
 		for (i=0; i<nbStrings; i++)
 		{
+			// calcul position cordes sur la gameArea)
 			metrics->string[i].x=((metrics->gameArea.w)/(nbStrings + 1))*(i+1)+metrics->gameArea.x;
 			metrics->string[i].y=(metrics->gameArea.y)+(metrics->gameArea.h)*0.2;
 
+			//calcul position strum sur la game area et coordonnées adaptées pour les avoir centré en fonction des cordes
 			metrics->strum[i].x=((metrics->gameArea.w)/(nbStrings + 1))*(i+1)+(metrics->gameArea.x)*0.95;
 			metrics->strum[i].y=(metrics->gameArea.y)+(metrics->gameArea.h)*0.85;
 

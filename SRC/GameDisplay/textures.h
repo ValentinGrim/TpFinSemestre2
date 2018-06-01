@@ -13,17 +13,17 @@
 
 typedef struct Textures_s
 {
-    SDL_Texture *notes[MAX_STRINGS];
-		SDL_Texture *background;
-    SDL_Texture *gameArea;
-		SDL_Texture *string;
-		SDL_Texture *strum[MAX_STRINGS];
-		SDL_Texture *strum_held[MAX_STRINGS];
-		SDL_Texture *combo;
-		SDL_Texture *chiffres[MAX_COMBO];
-		SDL_Texture *score[MAX_COMBO];
-		SDL_Texture *backHighscores;
-		SDL_Texture * logo;
+    SDL_Texture *notes[MAX_STRINGS];// tableau qui contient l image de "voir en début de ligne"
+		SDL_Texture *background; // tableau qui contient l image de "voir en début de ligne"
+    SDL_Texture *gameArea;// tableau qui contient l image de "voir en début de ligne"
+		SDL_Texture *string;// tableau qui contient l image de "voir en début de ligne"
+		SDL_Texture *strum[MAX_STRINGS];// tableau qui contient l image de "voir en début de ligne"
+		SDL_Texture *strum_held[MAX_STRINGS];// tableau qui contient l image de "voir en début de ligne"
+		SDL_Texture *combo;// tableau qui contient l image de "voir en début de ligne"
+		SDL_Texture *chiffres[MAX_COMBO];// tableau qui contient l image de "voir en début de ligne"
+		SDL_Texture *score[MAX_COMBO];// tableau qui contient l image de "voir en début de ligne"
+		SDL_Texture *backHighscores;// tableau qui contient l image de "voir en début de ligne"
+
 } Textures;
 
 Textures * newTextures(SDL_Renderer *renderer);
