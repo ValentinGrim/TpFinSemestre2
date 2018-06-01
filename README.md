@@ -2,10 +2,10 @@
 
 AMÉLIORATION DU JEU:
 
--les highs score
--combo
--choix piano/guitare
--logo du jeu qui apparait au début
+-les highsscores (3 meilleurs highscores sauvegardés par fichier .mid) 
+-combo (de 1 à 10 et le multiplicateur qui va avec fait de meme)
+-choix piano/guitare (argv)
+-logo du jeu qui apparait au début (npuvelle fenetre créée à part)
 
 -"cheat mode" (
 
