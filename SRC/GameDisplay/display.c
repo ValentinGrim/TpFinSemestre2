@@ -71,7 +71,7 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     //******************************************************************************************************************
     // Fond d'écran
     x = metrics->screen.x; //coordonnées écran
-    y = metrics->screen.y;
+    y = metrics->screen.y;//coordonnées écran
 
     renderTexture(textures->background, renderer, x, y); //affichage de la texture du background
 
@@ -121,52 +121,53 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
       case 1:
         x = 300;//position sur l'écran
         y = 150;//position sur l'écran
-        renderTexture(textures->chiffres[1], renderer, x, y); //affichage de l image en fonction de la zone et des coordonnées
+        renderTexture(textures->chiffres[1], renderer, x, y); //affichage de l image en fonction de la zone et des coordonnées et image voulue
         break;
 
       case 2:
         x = 300;//position sur l'écran
         y = 150;//position sur l'écran
-        renderTexture(textures->chiffres[2], renderer, x, y); //affichage de l image en fonction de la zone et des coordonnées
+        renderTexture(textures->chiffres[2], renderer, x, y); //affichage de l image en fonction de la zone et des coordonnées et image voulue
         break;
 
       case 3:
         x = 300;//position sur l'écran
         y = 150;//position sur l'écran
-        renderTexture(textures->chiffres[3], renderer, x, y); //affichage de l image en fonction de la zone et des coordonnées
+        renderTexture(textures->chiffres[3], renderer, x, y);//affichage de l image en fonction de la zone et des coordonnées et image voulue
         break;
 
       case 4:
         x = 300;//position sur l'écran
         y = 150;//position sur l'écran
-        renderTexture(textures->chiffres[4], renderer, x, y); //affichage de l image en fonction de la zone et des coordonnées
+        renderTexture(textures->chiffres[4], renderer, x, y); //affichage de l image en fonction de la zone et des coordonnées et image voulue
         break;
 
       case 5:
         x = 300;//position sur l'écran
         y = 150;//position sur l'écran
-        renderTexture(textures->chiffres[5], renderer, x, y); //affichage de l image en fonction de la zone et des coordonnées
+        renderTexture(textures->chiffres[5], renderer, x, y); //affichage de l image en fonction de la zone et des coordonnées et image voulue
         break;
 
       case 10:
         x = 300;//position sur l'écran
         y = 150;//position sur l'écran
-        renderTexture(textures->chiffres[1], renderer, x, y); //affichage de l image en fonction de la zone et des coordonnées
-        renderTexture(textures->chiffres[0], renderer, x+70, y); //affichage de l image en fonction de la zone et des coordonnées
+        renderTexture(textures->chiffres[1], renderer, x, y);//affichage de l image en fonction de la zone et des coordonnées et image voulue
+        renderTexture(textures->chiffres[0], renderer, x+70, y);//affichage de l image en fonction de la zone et des coordonnées et image voulue
         break;
 
     }
 
+    //boucle pour parcourrir toutes les notes de la portée
     for(int i = 0; i < gameSheet->nbNotes[staffIdx]; i++)
     {
-
+      //boucle pour les notes visible
       if(notes[i].visible == 1)
       {
         curNote = &notes[i];
         stringIdx = curNote->stringIdx;
-        x = ((metrics->gameArea.w)/(gameSheet->nbStrings + 1))*(notes[i].stringIdx+1)+(metrics->gameArea.x)*0.95;
-        y = metrics->gameArea.y + curNote->relPos * metrics->gameArea.h;
-        renderTexture(textures->notes[stringIdx], renderer, x,y); //affichage de l image en fonction de la zone et des coordonnées
+        x = ((metrics->gameArea.w)/(gameSheet->nbStrings + 1))*(notes[i].stringIdx+1)+(metrics->gameArea.x)*0.95;//position sur l'écran
+        y = metrics->gameArea.y + curNote->relPos * metrics->gameArea.h;//position sur l'écran
+        renderTexture(textures->notes[stringIdx], renderer, x,y);//affichage de l image en fonction de la zone et des coordonnées et image voulue
       }
     }
 
@@ -174,14 +175,14 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     // affichage Scores (7 chiffres mise a jours)
     for(int i = 0; i < 7; i++)
     {
-        renderTexture(textures->chiffres[model->pointTab[i]], renderer , (70*i), metrics->screen.h-70);
+        renderTexture(textures->chiffres[model->pointTab[i]], renderer , (70*i), metrics->screen.h-70);//affichage de l image en fonction de la zone et des coordonnées et image voulue
     }
 
     //******************************************************************************************************************
     // affichage fond des highscore ( pour mieux lesfaire ressortir)
 
     x = metrics->screen.w - (240); //position sur l'écran (y = 0)
-    renderTexture(textures->backHighscores, renderer , x , (0));
+    renderTexture(textures->backHighscores, renderer , x , (0));//affichage de l image en fonction de la zone et des coordonnées et image voulue
 
     //******************************************************************************************************************
     //highscores comme pour le scores sans la mise a jour et avec tecutre differentes
@@ -189,17 +190,17 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     for(int i = 0; i < 7; i++)
     {
         x = metrics->screen.w - (30*(7-i));//position sur l'écran
-        renderTexture(textures->score[model->highScoresTab[0][i]], renderer , x , (0));
+        renderTexture(textures->score[model->highScoresTab[0][i]], renderer , x , (0));//affichage de l image en fonction de la zone et des coordonnées et image voulue
     }
     for(int i = 0; i < 7; i++)
     {
         x = metrics->screen.w - (30*(7-i));//position sur l'écran
-        renderTexture(textures->score[model->highScoresTab[1][i]], renderer , x , (50));
+        renderTexture(textures->score[model->highScoresTab[1][i]], renderer , x , (50));//affichage de l image en fonction de la zone et des coordonnées et image voulue
     }
     for(int i = 0; i < 7; i++)
     {
         x = metrics->screen.w - (30*(7-i));//position sur l'écran
-        renderTexture(textures->score[model->highScoresTab[2][i]], renderer , x , (100));
+        renderTexture(textures->score[model->highScoresTab[2][i]], renderer , x , (100));//affichage de l image en fonction de la zone et des coordonnées et image voulue
     }
 
     //******************************************************************************************************************

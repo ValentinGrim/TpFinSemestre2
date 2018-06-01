@@ -112,10 +112,13 @@ void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys, char * nomfi
 								FILE * pFichier = NULL;
 								pFichier = fopen(nomfichier, "w");
 
+								//les highs sont géré ici pour qu'il soient enregistré lors de la fermeture du jeu
 								for(int i = 0; i < 3; i++)
 								{
+									//boucle permettant le test pour savoir  si on vient de faire un pb (personal best)
 									if(highScores[i] < points)
 									{
+										//boucles pour trier les meilleurs scores
 										if(i + 1 < 3)
 										{
 											if(i + 2 < 3)
@@ -128,6 +131,7 @@ void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys, char * nomfi
 										i = 3;
 									}
 								}
+								//ecriture dans le fichier des highscores
 								fprintf(pFichier,"1 - %d\n", highScores[0]);
 								fprintf(pFichier,"2 - %d\n", highScores[1]);
 								fprintf(pFichier,"3 - %d\n", highScores[2]);
@@ -138,6 +142,8 @@ void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys, char * nomfi
         case SDL_KEYUP: //...................................................................... Une touche est relach�e
 
 						scanCode = evt.key.keysym.scancode;
+
+
 						for(int i = 0 ; i < MAX_STRINGS ; i++)
 						{
 
