@@ -99,12 +99,6 @@ void updateGameSheet(GameSheet *sheet, Timer *timer)
         notes[i].relPos += timer->delta * timer->relSpeed;
 
       }
-      if(falledTime < timer->currentTime)
-      {
-
-        notes[i].visible = 0;
-
-      }
 
       if(fallTime > timer->currentTime && falledTime > timer->currentTime)
       {
@@ -215,11 +209,12 @@ void checkStrum(Model *model)
 
           model->xXcOmbOXx = 0;
           model->life--;
-          notes[i].state == stateFailed;
-          if(model->points > 10)
+          notes[i].state = stateFailed;
+          notes[i].visible = 0;
+          if(model->points >= 50)
           {
 
-            model->points-= 10;
+            model->points-= 50;
 
           }
         }

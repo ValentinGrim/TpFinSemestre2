@@ -96,7 +96,12 @@ void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys, char * nomfi
 								gameKeys->fretDown[i] = 1;
 
 							}
+
+
 						}
+
+						if (scanCode == config->strumValue)
+  							gameKeys->strumDown = 1;
 
 
             if ( evt.key.repeat )
