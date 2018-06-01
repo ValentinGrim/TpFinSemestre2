@@ -141,7 +141,8 @@ void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys, char * nomfi
 						scanCode = evt.key.keysym.scancode;
 						for(int i = 0 ; i < MAX_STRINGS ; i++)
 						{
-
+              /*if(gameKeys->fretDown[i] != 0)
+		            gameKeys->fretDown[i] = 0;*/
 							if(scanCode == config->fretValues[i])
 							{
 
@@ -149,10 +150,16 @@ void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys, char * nomfi
 
 							}
         		}
-						if (scanCode == config->strumValue)
-						{
-							gameKeys->strumDown = 0;
-						}
+
+
+            if (config->pianoMode !=1)
+            {
+  						if (scanCode == config->strumValue)
+  						{
+  							gameKeys->strumDown = 0;
+  						}
+            }
+            break;
     	}
 		}
 }
