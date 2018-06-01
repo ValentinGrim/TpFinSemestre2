@@ -182,10 +182,10 @@ void checkStrum(Model *model)
        			notes[i].state=statePlayed;
        			notes[i].visible=0;
 
-            /*if(model->cheatMode == 0)
+            if(model->cheatMode == 0)
             {
                 model->keys->fretDown[string] = 1;
-            }*/
+            }
 
        			model->points+=(100 * model->cOmbOMult);
        		}
@@ -193,7 +193,7 @@ void checkStrum(Model *model)
 
         else
         {
-          if((notes[i].playingTime <= model->timer->currentTime+0.09) &&(notes[i].playingTime >= model->timer->currentTime-0.09) && (model->keys->fretDown[string]==1) && (model->keys->strumDown ==1))
+          if((notes[i].playingTime <= model->timer->currentTime+0.09) &&(notes[i].playingTime >= model->timer->currentTime-0.09) && (model->keys->fretDown[string]==1) && ((model->keys->strumDown ==1)||(model->keys->strumDown == 2)))
           {
 
             model->xXcOmbOXx++;
@@ -202,10 +202,10 @@ void checkStrum(Model *model)
             notes[i].state=statePlayed;
             notes[i].visible=0;
 
-            /*if(model->cheatMode == 0)
+            if(model->cheatMode == 0)
             {
                 model->keys->fretDown[string] = 1;
-            }*/
+            }
 
             model->points+=(100 * model->cOmbOMult);
           }

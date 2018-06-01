@@ -212,7 +212,7 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
             renderTexture(textures->score[model->highScoresTab[2][i]], renderer , x , (100));
         }
 
-  
+
     //******************************************************************************************************************
     // SCORES
 
