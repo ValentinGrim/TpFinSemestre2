@@ -129,6 +129,7 @@ void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys, char * nomfi
 								fprintf(pFichier,"3 - %d\n", highScores[2]);
                 gameKeys->exitDown = 1;
             }
+
 						if (scanCode == config->strumValue)
 						{
 							gameKeys->strumDown = 1;
@@ -150,7 +151,7 @@ void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys, char * nomfi
         		}
 						if (scanCode == config->strumValue)
 						{
-							gameKeys->strumDown = 1;
+							gameKeys->strumDown = 0;
 						}
     	}
 		}

@@ -190,6 +190,7 @@ void checkStrum(Model *model)
        			model->points+=(100 * model->cOmbOMult);
        		}
         }
+
         else
         {
           if((notes[i].playingTime <= model->timer->currentTime+0.09) &&(notes[i].playingTime >= model->timer->currentTime-0.09) && (model->keys->fretDown[string]==1) && (model->keys->strumDown ==1))
