@@ -174,7 +174,7 @@ void checkStrum(Model *model)
         if (model->keys->pianoMode !=1)
         {
           if((notes[i].playingTime <= model->timer->currentTime+0.09) &&(notes[i].playingTime >= model->timer->currentTime-0.09) && (model->keys->fretDown[string]==1))
-       		{
+       	  {
 
             model->xXcOmbOXx++;
             model->life ++;
@@ -190,6 +190,7 @@ void checkStrum(Model *model)
        			model->points+=(100 * model->cOmbOMult);
        		}
         }
+
         else
         {
           if((notes[i].playingTime <= model->timer->currentTime+0.09) &&(notes[i].playingTime >= model->timer->currentTime-0.09) && (model->keys->fretDown[string]==1) && (model->keys->strumDown ==1))
@@ -209,20 +210,22 @@ void checkStrum(Model *model)
             model->points+=(100 * model->cOmbOMult);
           }
         }
-      }
+    }
 
 
-        if(notes[i].playingTime+0.09 < model->timer->currentTime && notes[i].state == stateAlive)
+
+    }
+    if(notes[i].playingTime+0.09 < model->timer->currentTime && notes[i].state == stateAlive)
+      {
+
+        model->xXcOmbOXx = 0;
+        model->life--;
+
+        if(model->points > 10)
         {
 
-          model->xXcOmbOXx = 0;
-          model->life--;
-          if(model->points > 10)
-          {
+          model->points-= 10;
 
-            model->points-= 10;
-
-          }
         }
       }
       TabPoints(model);
