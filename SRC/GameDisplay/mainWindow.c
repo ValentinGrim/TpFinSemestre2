@@ -19,8 +19,8 @@ MainWindow * newMainWindow()
     if (!mainWindow)
         return NULL;
 
-    //mainWindow->window = SDL_CreateWindow("Teubies Legend", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 0);
-    mainWindow->window = SDL_CreateWindow( "Midi Legend", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_FULLSCREEN );
+    mainWindow->window = SDL_CreateWindow("Teubies Legend", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 0);
+    //mainWindow->window = SDL_CreateWindow( "Midi Legend", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_FULLSCREEN );
     if (!mainWindow->window)
     {
         printf("SDL_CreateWindow Error: %s\n", SDL_GetError());

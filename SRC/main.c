@@ -126,6 +126,7 @@ int main(int argc, char** argv)
 
       if( pWindow )
       {
+
           SDL_Delay(3000); /* Attendre trois secondes, que l'utilisateur voie la fenêtre */
 
           SDL_DestroyWindow(pWindow);
@@ -205,7 +206,21 @@ int main(int argc, char** argv)
 
         // Mise � jour de la vue
         updateGameDisplay(gameDisp, mainWindow, model);
-    }
+
+      }
+
+    while(!(model->keys->quitDown || model->keys->exitDown))
+    {
+        if( menu== 0 )
+        {
+          menu = -1;
+        }
+
+        else if (menu =1)
+        {
+          menu = 0;
+        }
+      }
 
     //******************************************************************************************************************
     // Lib�ration de la m�moire
