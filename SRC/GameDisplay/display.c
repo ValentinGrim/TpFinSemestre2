@@ -192,6 +192,7 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
           renderTexture(textures->chiffres[model->highScoresTab[j][i]], renderer , 0, (100*j));
       }*/
 
+<<<<<<< HEAD
     //}
     for(int i = 0; i < 7; i++)
     {
@@ -208,6 +209,9 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
         x = metrics->screen.w - (30*(7-i));
         renderTexture(textures->score[model->highScoresTab[2][i]], renderer , x , (100));
     }
+=======
+
+>>>>>>> 1a6d1384933ca8c81d0776b003ab3598d94ba94e
     //******************************************************************************************************************
     // SCORES
 
