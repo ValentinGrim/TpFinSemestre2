@@ -246,12 +246,12 @@ void TabPoints(Model *model)
 void TabHighscores(Model *model)
 {
 
-  int points = model->points;
+  int points;
   int TabTemp[7];
 
   for (int j = 0; j < 3; j++)
   {
-    int points = model->highScores[j];
+    points = model->highScores[j];
     for(int i = 0; i < 7; i++)
     {
 

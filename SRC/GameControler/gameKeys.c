@@ -61,11 +61,10 @@ void freeGameKeys(GameKeys * gameKeys)
     free(gameKeys);
 }
 
-void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys, char * nomfichier, int *  highScores, int * points)
+void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys, char * nomfichier, int *  highScores, int points)
 {
     SDL_Event evt;
     SDL_Scancode scanCode;
-    int stringIdx;
 
     gameKeys->quitDown = 0;
     gameKeys->strumDown = 0;
