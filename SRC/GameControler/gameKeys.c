@@ -116,7 +116,7 @@ void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys, char * nomfi
 								for(int i = 0; i < 3; i++)
 								{
 									//boucle permettant le test pour savoir  si on vient de faire un pb (personal best)
-									if(highScores[i] < points)
+									if(highScores[i] < points) 
 									{
 										//boucles pour trier les meilleurs scores
 										if(i + 1 < 3)

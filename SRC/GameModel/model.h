@@ -70,7 +70,6 @@ typedef struct Model_s
     int highScores[3];
     int highScoresTab[3][7];
     int xXcOmbOXx;
-    int life;
     char nomfichier[1024];
     int cheatMode;
     int pMode;
