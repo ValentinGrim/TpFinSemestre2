@@ -70,9 +70,9 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
 
     //******************************************************************************************************************
     // Fond d'écran
-
     x = metrics->screen.x;
     y = metrics->screen.y;
+
     renderTexture(textures->background, renderer, x, y);
 
     //******************************************************************************************************************
@@ -184,15 +184,7 @@ void updateGameDisplay(GameDisplay *gameDisp, MainWindow *mainWindow, Model *mod
     renderTexture(textures->backHighscores, renderer , x , (0));
     //******************************************************************************************************************
     //highscores
-    /*for (int j; j<3; j++)
-    {
 
-      for(int i = 0; i < 7; i++)
-      {
-          renderTexture(textures->chiffres[model->highScoresTab[j][i]], renderer , 0, (100*j));
-      }*/
-
-    //}
     for(int i = 0; i < 7; i++)
     {
         x = metrics->screen.w - (30*(7-i));

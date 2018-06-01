@@ -53,6 +53,10 @@ Textures * newTextures(SDL_Renderer *renderer)
     textures->background = loadTexture(imgPath, renderer);
     if (textures->background == NULL) goto ERROR_LABEL;
 
+    sprintf(posToWrite, "Logo.png");
+    textures->logo = loadTexture(imgPath, renderer);
+    if (textures->logo == NULL) goto ERROR_LABEL;
+
     // Chargement du combo
     sprintf(posToWrite, "combo.png");
     textures->combo = loadTexture(imgPath, renderer);
