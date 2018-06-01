@@ -7,7 +7,7 @@ AMÉLIORATION DU JEU:
 -choix piano/guitare (argv)
 -logo du jeu qui apparait au début (npuvelle fenetre créée à part)
 
--"cheat mode" (
+-"cheat mode" (s'active manuellement dand le code model.c --> fonction NewModel)
 
 
 POURCENTAGE TRAVAIL:
