@@ -1,7 +1,7 @@
 #ifdef _WIN32
-#include <SDL.h>
+	#include <SDL.h>
 #else
-#include <SDL2/SDL.h>
+	#include <SDL2/SDL.h>
 #endif
 
 #include <stdio.h>
@@ -129,11 +129,6 @@ void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys, char * nomfi
 								fprintf(pFichier,"3 - %d\n", highScores[2]);
                 gameKeys->exitDown = 1;
             }
-
-						if (scanCode == config->strumValue)
-						{
-							gameKeys->strumDown = 1;
-						}
             break;
 
         case SDL_KEYUP: //...................................................................... Une touche est relach�e
@@ -141,25 +136,15 @@ void processGameEvents(SDLGameConfig * config, GameKeys * gameKeys, char * nomfi
 						scanCode = evt.key.keysym.scancode;
 						for(int i = 0 ; i < MAX_STRINGS ; i++)
 						{
-              /*if(gameKeys->fretDown[i] != 0)
-		            gameKeys->fretDown[i] = 0;*/
+
 							if(scanCode == config->fretValues[i])
 							{
 
 								gameKeys->fretDown[i] = 0;
 
 							}
-        		}
 
-
-            if (config->pianoMode !=1)
-            {
-  						if (scanCode == config->strumValue)
-  						{
-  							gameKeys->strumDown = 0;
-  						}
-            }
-            break;
+        	}
     	}
 		}
 }
