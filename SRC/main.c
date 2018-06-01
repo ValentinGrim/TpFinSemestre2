@@ -137,7 +137,7 @@ int main(int argc, char** argv)
 
         }
 
-        SDL_Rect pLogo = {0,0,350,230};
+        SDL_Rect pLogo = {0,0};
         SDL_BlitSurface(logo,NULL,SDL_GetWindowSurface(pWindow),&pLogo);
         SDL_UpdateWindowSurface(pWindow);
         SDL_Delay(2000);
