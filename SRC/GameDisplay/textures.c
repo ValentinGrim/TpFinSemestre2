@@ -46,7 +46,10 @@ Textures * newTextures(SDL_Renderer *renderer)
         if (textures->strum_held[i] == NULL) goto ERROR_LABEL;
 
     }
-
+    //chargement fond du menu
+    sprintf(posToWrite, "background.png");
+    textures->screenMenu = loadTexture(imgPath, renderer);
+    if (textures->screenMenu == NULL) goto ERROR_LABEL;
 
     // Chargement du fond
     sprintf(posToWrite, "background.png");

@@ -110,36 +110,6 @@ int main(int argc, char** argv)
 
     //******************************************************************************************************************
     // Initialisation de la vue
-    int menu = 0;
-
-    while (menu == 0)
-    {
-      if (SDL_Init(SDL_INIT_VIDEO) != 0 )
-      {
-          fprintf(stdout,"Échec de l'initialisation de la SDL (%s)\n",SDL_GetError());
-          return -1;
-      }
-
-      SDL_Window* pWindow = NULL;
-      pWindow = SDL_CreateWindow("Tubbies Legend",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 0);
-
-
-      if( pWindow )
-      {
-
-          SDL_Delay(3000); /* Attendre trois secondes, que l'utilisateur voie la fenêtre */
-
-          SDL_DestroyWindow(pWindow);
-      }
-      else
-      {
-          fprintf(stderr,"Erreur de création de la fenêtre: %s\n",SDL_GetError());
-      }
-
-      SDL_Quit();
-      menu = 1;
-
-    }
 
     initSDL();
     mainWindow = newMainWindow();
@@ -154,7 +124,6 @@ int main(int argc, char** argv)
         printf("Erreur de creation de l'affichage\n");
         return EXIT_FAILURE;
     }
-
     initMetrics(gameDisp->metrics, nbStrings);
 
     //******************************************************************************************************************
@@ -196,31 +165,33 @@ int main(int argc, char** argv)
     // Lancement du timer
     startTimer(model->timer);
 
-    while (!(model->keys->quitDown || model->keys->exitDown))
+   	model->Menu = 0;
+    model->keys->Startgame = 0;
+    model->choixMenu = 0;
+    while (model->Menu != -1)     // Menu == -1   =>   quitter le jeu
     {
-        // Mise � jour du controller
-        processGameEvents(config, model->keys, model->nomfichier, model->highScores, model->points);
-
-        // Mise � jour du mod�le
+        if(model->Menu != 1)
+            model->keys->Startgame = 0;
+        // Mise à jour du controller
+        processGameEvents(config, model->keys);
+        if(model->keys->Startgame > 1)
+            model->choixMenu = model->keys->Startgame - 2;
+        // Mise à jour du modèle
         updateModel(model);
 
-        // Mise � jour de la vue
+
+        // Mise à jour de la vue
         updateGameDisplay(gameDisp, mainWindow, model);
-
-      }
-
-    while(!(model->keys->quitDown || model->keys->exitDown))
-    {
-        if( menu== 0 )
+        if(model->keys->Startgame == 1)
+            model->Menu = 1;
+        if(model->keys->quitDown || model->keys->exitDown)
         {
-          menu = -1;
+            if(model->Menu == 0) //le Menu est ouvert
+                model->Menu = -1; // on ferme la fenètre
+            else if(model->Menu == 1) // on est dans le jeu
+                model->Menu = 0;  // on retourne au Menu
         }
-
-        else if (menu =1)
-        {
-          menu = 0;
-        }
-      }
+    }
 
     //******************************************************************************************************************
     // Lib�ration de la m�moire
